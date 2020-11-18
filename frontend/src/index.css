@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.searchformarea{
+  background-color: black;
+  color: white;
+  width: 50%;
+  margin: 15rem auto;
+  padding-top: 0.01rem;
+
+}
+.searchformareatitle{
+  padding-left: 1rem;
+}
+.searchform{
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 2.5rem;
+  padding-left: 1rem;
+}
+
+.searchbutton{
+  background-color: red;
+  color: white;
+}
+
+#locationoptions,
+#budgetoptions,
+#homeoptions,
+#saleoptions{
+  width: 8rem;
+  height: 2rem;
+  }
+
+.min-max-room-options,
+.min-max-size-options{
+  display: flex;
+}
+.max-room-options,
+.max-size-options{
+  margin-left: 2rem;
+}
+
