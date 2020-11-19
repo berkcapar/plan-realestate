@@ -1,25 +1,20 @@
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom"
-import HomePage from "./components/HomePage"
-
-
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
 
 const Routes = () => {
-    return ( 
-    <BrowserRouter>
-    <div>
-    <Link to = "/"> Plan Emlak </Link>
-    <Link to = "/makeawish"> Make A Wish </Link>
-    </div>
-    <Switch>
+  return (
+    <BrowserRouter> 
+      <Switch>
         <Route exact path="/">
-            <HomePage/>
+          <HomePage />
         </Route>
-        <Route path="/makeawish"><div>Make A Wish</div></Route>
-    </Switch>
+        <Route path="/makeawish">
+          <div>Make A Wish</div>
+        </Route>
+      </Switch>
+      </BrowserRouter>
+  
+  );
+};
 
-
-    </BrowserRouter>
-    )
-}
-
-export default Routes
+export default Routes;

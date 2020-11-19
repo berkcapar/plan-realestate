@@ -1,12 +1,14 @@
 import React from "react";
+import Toggleable from "./Toggleable";
 
 const SizeOption = () => {
+
+ 
   return (
-    <div className="min-max-size-options"> 
-    <div> 
-    <p>Min Size</p>
+    <div className="min-max-size-options">
+      
+    <div>
       <select id="roomoptions" name="roomoptions">
-       
         <option value="one">1</option>
         <option value="two">2</option>
         <option value="three">3</option>
@@ -16,7 +18,7 @@ const SizeOption = () => {
         <option value="eight">8</option>
         <option value="nine">9</option>
         <option value="rent">10</option>
-       
+  
       </select>
       </div>
           <div className="max-size-options"> 

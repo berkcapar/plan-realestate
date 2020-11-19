@@ -5,6 +5,7 @@ import LocationOption from "./LocationOption";
 import RoomOption from "./RoomOption";
 import SaleOption from "./SaleOption";
 import SizeOption from "./SizeOption";
+import Toggleable from "./Toggleable";
 
 const SearchArea = () => {
   return (
@@ -16,18 +17,13 @@ const SearchArea = () => {
         <HomeOption />
         <BudgetOption />
         <button className="searchbutton" type="submit">SEARCH</button>
+        
         <RoomOption/>
+        <Toggleable buttonLabel = "Min Size">
         <SizeOption/>
+        </Toggleable>
       </form>
-      <style jsx>{`
-        body {
-          background-image: url("/images/heroimage.jpg");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center center;
-          background-attachment: fixed;
-        }
-      `}</style>
+
     </div>
   );
 };
