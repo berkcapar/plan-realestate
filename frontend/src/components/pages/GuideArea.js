@@ -1,6 +1,6 @@
 const GuideArea = () => {
   return (
-    <div className="guidearea">
+    <div id="why-turkey" className="guidearea">
       <div className="guidearea-texts">
       <h1>Beatiful and Affordable Paradise</h1>
       <p>Discover where nature meets the sea and turn into your next peaceful residency.</p>

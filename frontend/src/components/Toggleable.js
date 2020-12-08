@@ -7,20 +7,23 @@ const Toggleable = (props) => {
   const showComponent = { display: visible ? "" : "none" };
 
   const toggleVisibility = () => {
-    setVisible(!visible)
-  }
-return ( 
+    setVisible(!visible);
+  };
+  return (
     <div>
-        <div style={hideComponent}>
-            <button onClick={toggleVisibility}>{props.buttonLabel}</button>
-        </div>
-        <div style={showComponent}>
-          {props.children}
-        <button onClick={toggleVisibility}>cancel</button>
-        </div>
+      <div style={hideComponent}>
+        <button className="toggle" onClick={toggleVisibility}>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div style={showComponent}>
+        {props.children}
+        <button className="toggle" onClick={toggleVisibility}>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
-)
-
+  );
 };
 
 export default Toggleable;

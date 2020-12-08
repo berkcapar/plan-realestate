@@ -1,11 +1,10 @@
 body {
   margin: 0;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Proxima Nova;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1.125 rem;
 }
 
 code {
@@ -19,7 +18,7 @@ code {
   background-position: center/center;
   background-size: cover;
   width: 100%;
-  height: 90vh;
+  height: 97vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,17 +29,24 @@ code {
 .searchformarea {
   background-color: black;
   color: white;
-  width: 50%;
+  width: 80%;
   opacity: 80%;
+  margin-top:5rem;
   margin-bottom: 3rem;
-}
-.searchformareatitle {
-  padding-left: 1rem;
-}
-.searchform {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 2.5rem;
+  padding-left: 1rem;
+}
+
+.searchform{
+  border: 1px solid magenta
+}
+.searchform div{
+  margin-bottom: 1rem;
+}
+
+.searchformareatitle {
   padding-left: 1rem;
 }
 
@@ -48,6 +54,14 @@ code {
   background-color: red;
   color: white;
 }
+
+@media(min-width:750px){
+  .searchformarea{
+
+  }
+}
+
+
 
 #locationoptions,
 #budgetoptions,
@@ -78,33 +92,103 @@ i {
 
 /* navigation */
 .nav-container {
-  display: flex;
-  justify-content: space-around;
   background-color: LIGHTSEAGREEN;
+  position: fixed;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  opacity: 80%;
+  width: 100%;
+  z-index: 100;
 }
-.inpage-nav-container {
-  margin-left: 4rem;
-  display: flex;
-  margin-right: 1rem;
+.navbar-logo{
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-top: 0.1rem;
+  margin-left: 2rem;
+  color: aliceblue;
+}
+.nav-elements {
+  font-weight: 600;
+  list-style-type: none;
+  display: none;
 }
 
-.inpage-nav-container a {
-  margin-left: 1.5rem;
-  justify-content: flex-end;
+.nav-links{
+  color: aliceblue;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 2rem;
 }
-.link-nav-container {
-  display: flex;
-  width: 44%;
-  justify-content: space-between;
+
+.nav-elements li{
+  text-align: center;
+  margin: 15px auto;
 }
-.link-nav-container div {
-  margin-left: 1.5rem;
+.active {
+  display: block;
 }
+
+.navbar-toggle {
+  position: absolute;
+  top: 1.75rem;
+  right: 1rem;
+  cursor: pointer; 
+  color: rgba(255,255,255,0.8);
+  font-size: 1.5rem;
+}
+
+@media (min-width: 750px) {
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-logo{
+    margin-top: 0;
+  }
+  .nav-elements {
+    display: flex;
+    flex-direction: row;
+    margin-right: 1rem;
+    justify-content: flex-end;
+  }
+  .nav-elements li{
+    text-align: center;
+    margin: 0;
+  } 
+  .navbar-toggle {
+    display: none;
+  }
+}
+
 /* navigation */
+
+/* highligthed card && area */
+
+.highlightedarea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.highlightcard {
+  border: 1px solid black;
+}
+.highlightcard-textbox {
+  display: flex;
+}
+.highlightcard-details {
+}
+.highlightcard-contact-area {
+  margin-top: 7.5rem;
+  margin-left: 2rem;
+}
+
+/* guide area */
 
 .guidearea {
   background-image: url("./images/guidearea.jpg");
@@ -117,13 +201,56 @@ i {
   flex-direction: column;
   justify-content: center;
 }
-.guide-buttons{
+.guide-buttons {
   width: 45%;
   display: flex;
   justify-content: space-around;
   margin-top: 1.5rem;
 }
-.guidearea-texts{
+.guidearea-texts {
   width: 40%;
   padding-left: 3.9rem;
+  color: seashell;
 }
+/* guide area */
+
+/*contact area */
+.contact-area {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background-color: DARKSLATEGREY;
+}
+.contact-container {
+  margin-top: 4rem;
+}
+.contact-text {
+  width: 50%;
+  margin: 1rem auto;
+  color: seashell;
+}
+.contact-form-area {
+  background-color: cyan;
+  width: 50%;
+  margin: 1rem auto;
+  padding-left: 1.5rem;
+  border-radius: 0.75rem;
+  padding-top: 0.5rem;
+}
+.contact-form-area div {
+  margin-top: 1rem;
+}
+.contact-button {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+.aboutinput {
+  margin-left: 2.2rem;
+  line-height: 2rem;
+}
+.emailinput {
+  margin-left: 0.2rem;
+}
+
+/*contact area */

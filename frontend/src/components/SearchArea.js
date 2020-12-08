@@ -12,18 +12,27 @@ const SearchArea = () => {
     <div className="searchformarea">
       <h3 className="searchformareatitle">Find Your Cozy Place</h3>
       <form className="searchform">
-        <SaleOption />
-        <LocationOption />
-        <HomeOption />
-        <BudgetOption />
-        <button className="searchbutton" type="submit">SEARCH</button>
-        
-        <RoomOption/>
-        <Toggleable buttonLabel = "Min Size">
-        <SizeOption/>
-        </Toggleable>
-      </form>
+        <div>
+          <SaleOption />
+        </div>
+        <div>
+          <LocationOption />
+        </div>
+        <div>
+          <HomeOption />
+        </div>
+        <div>
+          <BudgetOption />
+        </div>
 
+        <button className="searchbutton" type="submit">
+          SEARCH
+        </button>
+
+        <RoomOption />
+
+        <SizeOption />
+      </form>
     </div>
   );
 };
