@@ -31,18 +31,20 @@ code {
   color: white;
   width: 80%;
   opacity: 80%;
-  margin-top:5rem;
+  margin-top: 11rem;
   margin-bottom: 3rem;
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 2.5rem;
   padding-left: 1rem;
+  padding-top: 1rem;
 }
 
-.searchform{
-  border: 1px solid magenta
+.searchform {
+  width: 80%;
+  margin: 1rem auto;
 }
-.searchform div{
+.searchform div {
   margin-bottom: 1rem;
 }
 
@@ -55,13 +57,10 @@ code {
   color: white;
 }
 
-@media(min-width:750px){
-  .searchformarea{
-
+@media (min-width: 750px) {
+  .searchformarea {
   }
 }
-
-
 
 #locationoptions,
 #budgetoptions,
@@ -94,12 +93,16 @@ i {
 .nav-container {
   background-color: LIGHTSEAGREEN;
   position: fixed;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   width: 100%;
   z-index: 100;
 }
-.navbar-logo{
+.navbar-logo-container {
+  display: flex;
+  justify-content: space-around;
+}
+.navbar-logo {
   display: inline-block;
   text-decoration: none;
   font-weight: 600;
@@ -107,14 +110,24 @@ i {
   margin-top: 0.1rem;
   margin-left: 2rem;
   color: aliceblue;
+  justify-content: flex-start;
 }
 .nav-elements {
   font-weight: 600;
   list-style-type: none;
   display: none;
+  transition: all 0.5s ease;
+}
+.nav-elements.active {
+  background-color: LIGHTSEAGREEN;
+  border-top: 0.1rem solid black;
+  transition: all 0.5s ease;
 }
 
-.nav-links{
+.nav-elements.active li {
+  padding-bottom: 0.5rem;
+}
+.nav-links {
   color: aliceblue;
   text-decoration: none;
   font-weight: 600;
@@ -122,20 +135,27 @@ i {
   margin-left: 2rem;
 }
 
-.nav-elements li{
+.nav-elements li {
   text-align: center;
   margin: 15px auto;
 }
 .active {
   display: block;
+  transition: all 0.5s ease;
 }
 
 .navbar-toggle {
   position: absolute;
   top: 1.75rem;
   right: 1rem;
-  cursor: pointer; 
-  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+}
+
+.menu-icon {
+  justify-content: flex-end;
+  margin-top: 0.5rem;
   font-size: 1.5rem;
 }
 
@@ -145,7 +165,7 @@ i {
     justify-content: space-between;
     align-items: center;
   }
-  .navbar-logo{
+  .navbar-logo {
     margin-top: 0;
   }
   .nav-elements {
@@ -154,17 +174,36 @@ i {
     margin-right: 1rem;
     justify-content: flex-end;
   }
-  .nav-elements li{
+  .nav-elements li {
     text-align: center;
     margin: 0;
-  } 
+  }
   .navbar-toggle {
     display: none;
   }
+  .menu-icon {
+    display: none;
+  }
 }
-
 /* navigation */
 
+
+
+/* dropdown */
+.sale-dropdown,
+.location-dropdown,
+.property-drowdown{
+  width: 100%;
+  height: 2rem;
+}
+.budget-dropdown,
+.room-dropdown,
+.size-dropdown{
+  width: 40%;
+  height: 2rem;
+  margin-left: 1rem;
+}
+/* dropdown /*
 /* highligthed card && area */
 
 .highlightedarea {

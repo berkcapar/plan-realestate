@@ -1,13 +1,12 @@
 import React from "react";
+import {homeDropdownItems} from './DropdownItems'
 
 const HomeOption = () => {
   return (
-    <form>
-      <select name="homeoptions" id="homeoptions">
-        <option value="buy">Villa</option>
-        <option value="rent">Apartman</option>
-      </select>
-    </form>
+  <div>
+    <h3>Choose Property</h3>
+    <select className="property-drowdown">{homeDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
+  </div>
   );
 };
 

@@ -1,43 +1,14 @@
-import React from "react";
+import React from "react"
+import {roomDropdownItems} from './DropdownItems'
+
 
 const RoomOption = () => {
   return (
-    <div className="min-max-room-options"> 
     <div> 
-    <p>Min Rooms</p>
-      <select id="roomoptions" name="roomoptions">
-       
-        <option value="one">1</option>
-        <option value="two">2</option>
-        <option value="three">3</option>
-        <option value="four">4</option>
-        <option value="five">5</option>
-        <option value="six">6</option>
-        <option value="eight">8</option>
-        <option value="nine">9</option>
-        <option value="rent">10</option>
-       
-      </select>
-      </div>
-          <div className="max-room-options"> 
-          <p>Max Rooms</p>
-            <select id="roomoptions" name="roomoptions">
-             
-              <option value="one">1</option>
-              <option value="two">2</option>
-              <option value="three">3</option>
-              <option value="four">4</option>
-              <option value="five">5</option>
-              <option value="six">6</option>
-              <option value="eight">8</option>
-              <option value="nine">9</option>
-              <option value="rent">10</option>
-             
-            </select>
-            </div>
-            </div>
-    
-  );
-};
-
-export default RoomOption;
+    <h3>Rooms</h3>
+    <select className="room-dropdown">{roomDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select> 
+    <select className="room-dropdown">{roomDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
+    </div>
+  )
+}
+export default RoomOption

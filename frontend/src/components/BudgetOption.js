@@ -1,15 +1,13 @@
 import React from "react";
+import {priceDropdownItems} from './DropdownItems'
 
 const BudgetOption = () => {
   return (
-    <form>
-      <select name="budgetoptions" id="budgetoptions">
-        <option value="buy"> 50.000£ </option>
-        <option value="rent">100.000£</option>
-        <option value="rent">150.000£</option>
-        <option value="rent">200.000£</option>
-      </select>
-    </form>
+   <div>
+     <h3>Budget</h3>
+     <select className="budget-dropdown">{priceDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
+     <select className="budget-dropdown">{priceDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
+   </div>
   );
 };
 

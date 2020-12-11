@@ -1,47 +1,44 @@
+import { useState } from "react";
 import { Link, BrowserRouter } from "react-router-dom";
 
 const Navigation = () => {
+  const [click, setClick] = useState(false);
 
-/* let mainNav = document.getElementById('js-menu');
-  let navBarToggle = document.getElementById('js-navbar-toggle');
-  
-  navBarToggle.addEventListener('click', function () {
-      
-      mainNav.classList.toggle('active');
-  }); */
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false)
 
   return (
     <BrowserRouter>
       <div className="nav-container">
-        <span class="navbar-toggle" id="js-navbar-toggle">
-          <i class="fas fa-bars"></i>
-        </span>
-        <div className="navbar-logo-container"> 
-        <Link className="navbar-logo" to="/">
-          PLAN EMLAK
-        </Link>
+        <div className="navbar-logo-container">
+          <Link className="navbar-logo" to="/">
+            PLAN EMLAK
+          </Link>
+          <div className="menu-icon" onClick={handleClick} >
+        <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
-        <ul className="nav-elements" id="js-menu">
+        </div>
+        <ul className={click ? 'nav-elements active' : 'nav-elements'} >
           <li>
             {" "}
-            <Link className="nav-links" to="/makeawish">
+            <Link className="nav-links" to="/makeawish" onClick={closeMobileMenu}>
               Make A Wish
             </Link>
           </li>
           <li>
-            <a className="nav-links" href="#why-turkey">
+            <a className="nav-links" href="#why-turkey" onClick={closeMobileMenu}>
               Why Turkey?
             </a>
           </li>
           <li>
             {" "}
-            <a className="nav-links" href="#why-plan-emlak">
+            <a className="nav-links" href="#why-plan-emlak" onClick={closeMobileMenu}>
               Why Plan Emlak
             </a>
           </li>
           <li>
             {" "}
-            <a className="nav-links" href="#contact">
+            <a className="nav-links" href="#contact" onClick={closeMobileMenu}>
               Contact
             </a>
           </li>
@@ -51,3 +48,11 @@ const Navigation = () => {
   );
 };
 export default Navigation;
+
+/* let mainNav = document.getElementById('js-menu');
+  let navBarToggle = document.getElementById('js-navbar-toggle');
+  
+  navBarToggle.addEventListener('click', function () {
+      
+      mainNav.classList.toggle('active');
+  }); */
