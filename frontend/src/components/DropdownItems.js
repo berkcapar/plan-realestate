@@ -1,15 +1,18 @@
  export const locationDropdownItems = [
+  { location: "All Locations" },
   { location: "Antalya" },
   { location: "Bodrum" },
   { location: "Marmaris" },
   { location: "Kemer" },
 ];
 
- export const purchaseDropdownItems = [{ option: "For Sale" }, { option: "For Rent" }];
+ export const purchaseDropdownItems = [{ option: "All Options" },{ option: "For Sale" }, { option: "For Rent" }];
 
- export const homeDropdownItems = [{ option: "Villa" }, { option: "Apart" }];
+ export const homeDropdownItems = [{ option: "All Properties" },{ option: "Villa" }, { option: "Apart" }];
 
- export const priceDropdownItems = [{ option:"50.000€"}, {option:"100.000€"}, {option:"150.000€"}, {option: "200.000€"}]
+ export const minpriceDropdownItems = [{ option:"Min Budget"},{ option:"50.000€"}, {option:"100.000€"}, {option:"150.000€"}, {option: "200.000€"}]
+
+ export const maxpriceDropdownItems = [{ option:"Max Budget"},{ option:"50.000€"}, {option:"100.000€"}, {option:"150.000€"}, {option: "200.000€"}]
 
  export const roomDropdownItems = [{option: "1"},{option: "2"},{option: "3"},{option: "4"},{option: "5"},{option: "6"},{option: "7"},{option: "8"},{option: "9"},{option: "10"},]
 

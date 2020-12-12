@@ -9,29 +9,31 @@ import Toggleable from "./Toggleable";
 
 const SearchArea = () => {
 
-const [sidebar, setSidebar] = useState(false)
-
-const showSideBar = () => setSidebar(!sidebar)
-
   return (
-    <div className={sidebar ? 'searchformarea active' : "searchformarea"}>
+    <div className= "searchformarea">
       <h3 className="searchformareatitle">Find Your Cozy Place</h3>
       <form className="searchform">
-        <div>
+        <div className="searchform-first">
+          <div className="searchform-sale-location-home">
+        <div className="all-options">
           <SaleOption />
         </div>
-        <div>
+        <div className="all-options">
           <LocationDropdown />
         </div>
-        <div>
+        <div className="all-options">
           <HomeOption />
         </div>
-        <div>
+        </div>
+        <div className="all-options">
           <BudgetOption />
         </div>
+        <button className="searchbutton" type="submit">SEARCH </button>
+        </div>
+        <div className="searchform-second"> 
         <RoomOption />
         <SizeOption />
-        <button className="searchbutton" type="submit">SEARCH </button>
+        </div>
       </form>
     </div>
   );

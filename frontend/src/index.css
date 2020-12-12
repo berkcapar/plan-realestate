@@ -44,12 +44,9 @@ code {
   width: 80%;
   margin: 1rem auto;
 }
-.searchform div {
-  margin-bottom: 1rem;
-}
-
 .searchformareatitle {
   padding-left: 1rem;
+  margin-left: 0rem;
 }
 
 .searchbutton {
@@ -59,35 +56,83 @@ code {
 
 @media (min-width: 750px) {
   .searchformarea {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 3rem;
+    margin-bottom: 0;
+    padding-bottom: 0rem;
+    padding-right:0;
+    padding-top: 0;
   }
+  .searchform{
+    width: 80%;
+    margin-top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .searchformareatitle{
+    padding-left: 0rem;
+  }
+  .searchform-first{
+    display: flex;
+    width: 100%;
+  }
+  .searchform-sale-location-home{
+    display: flex;
+    width: 50%;
+  }
+  .searchform-second{
+    margin-top: 0rem;
+    display: flex;
+  }
+  .searchbutton{
+    width: 15%;
+  } 
 }
 
-#locationoptions,
-#budgetoptions,
-#homeoptions,
-#saleoptions {
-  width: 8rem;
+/* Search Form */
+/* dropdown */
+.sale-dropdown,
+.location-dropdown,
+.property-drowdown{
+  width: 100%;
   height: 2rem;
 }
-
-.min-max-room-options,
-.min-max-size-options {
-  display: flex;
-}
-.max-room-options,
-.max-size-options {
-  margin-left: 2rem;
-}
-
-i {
-  color: white;
+.budget-dropdown,
+.room-dropdown,
+.size-dropdown{
+  width: 40%;
+  height: 2rem;
   margin-left: 1rem;
 }
-.min-size-button {
-  background: none;
-  color: aliceblue;
+@media(min-width:750px){
+.sale-dropdown,
+.location-dropdown,
+.property-drowdown,
+.budget-dropdown{
+  width: 100%;
+  height: 3rem;
+  margin-left: 0;
 }
-/* Search Form */
+.dropdown-first-text{
+  display: none;
+}
+.dropdown-second-text{
+  margin-top: 0.5rem;
+}
+.budget-option{
+  display: flex;
+}
+.room-option{ 
+}
+.all-options{
+  width: 50%;
+  margin-bottom: 0;
+}
+}
+/* dropdown /*
 
 /* navigation */
 .nav-container {
@@ -188,22 +233,6 @@ i {
 /* navigation */
 
 
-
-/* dropdown */
-.sale-dropdown,
-.location-dropdown,
-.property-drowdown{
-  width: 100%;
-  height: 2rem;
-}
-.budget-dropdown,
-.room-dropdown,
-.size-dropdown{
-  width: 40%;
-  height: 2rem;
-  margin-left: 1rem;
-}
-/* dropdown /*
 /* highligthed card && area */
 
 .highlightedarea {

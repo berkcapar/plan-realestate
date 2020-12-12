@@ -5,7 +5,7 @@ const LocationDropdown = () => {
 
   return (
    <>
-    <h3> Pick a location</h3>
+    <h3 className="dropdown-first-text"> Pick a location</h3>
       <select className="location-dropdown">{locationDropdownItems.map((option) => ( 
         <option value={option.location}>{option.location}</option> 
       ))}
