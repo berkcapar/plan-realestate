@@ -11,8 +11,8 @@ const HomePage = () => {
     <div>
       <HeroArea />
       <HighlightedArea />
-      <WhyPlanEmlakArea whyItems={whyItems}/>
       <GuideArea />
+      <WhyPlanEmlakArea whyItems={whyItems}/>
       <ContactArea/>
       
     </div>

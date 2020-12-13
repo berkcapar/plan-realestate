@@ -6,7 +6,7 @@ const RoomDropdown = () => {
   const handleClick = () => setDropdown(!dropdown)
   return( 
   <div>
-    <h3 onClick={handleClick} className="dropdown-second-text">Rooms<i className='fas fa-caret-down' /></h3>
+    <h3 onClick={handleClick} className="dropdown-second-text">Rooms<i className='size-room-fas fas fa-caret-down' /></h3>
     {dropdown && <RoomOption/>}
   </div>
   )

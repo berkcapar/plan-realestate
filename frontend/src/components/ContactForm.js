@@ -8,18 +8,31 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-area">
+      <h1 className="contact-head">Let's Talk!</h1>
+      <p className="contact-text">
+        Have any questions? Let’s make a video call to get answers from
+        real-estate experts.
+      </p>
       <form onSubmit={handleContact}>
         <div>
-          Your Name: <input name="name" className="nameinput" />
+          <input placeholder="Your Name" name="name" className="name-input" />
         </div>
         <div>
-          Your Email: <input name="email" className="emailinput" />
+          <input
+            placeholder="Your Email"
+            name="email"
+            className="email-input"
+          />
         </div>
         <div>
-          About: <input name="about" className="aboutinput" />
+          <input
+            placeholder="Your Message Here"
+            name="about"
+            className="about-input"
+          />
         </div>
         <button className="contact-button" type="submit">
-          Send!
+          Submit!
         </button>
       </form>
     </div>

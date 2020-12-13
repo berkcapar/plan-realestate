@@ -15,7 +15,7 @@ const Navigation = () => {
             PLAN EMLAK
           </Link>
           <div className="menu-icon" onClick={handleClick} >
-        <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+        <i className={click ? "navigation-fas fas fa-times" : "navigation-fas fas fa-bars"}></i>
         </div>
         </div>
         <ul className={click ? 'nav-elements active' : 'nav-elements'} >
