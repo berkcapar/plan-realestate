@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import BudgetOption from "./BudgetOption";
 import HomeOption from "./HomeOption";
 import LocationDropdown from "./LocationDropdown";
-import RoomOption from "./RoomOption";
+import RoomDropdown from "./RoomDropdown";
 import SaleOption from "./SaleOption";
-import SizeOption from "./SizeOption";
-import Toggleable from "./Toggleable";
+import SizeDropdown from "./SizeDropdown";
 
 const SearchArea = () => {
 
@@ -31,8 +30,8 @@ const SearchArea = () => {
         <button className="searchbutton" type="submit">SEARCH </button>
         </div>
         <div className="searchform-second"> 
-        <RoomOption />
-        <SizeOption />
+        <RoomDropdown />
+        <SizeDropdown />
         </div>
       </form>
     </div>

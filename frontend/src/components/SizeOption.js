@@ -1,12 +1,15 @@
 import React from "react";
-import {sizeDropdownItems} from './DropdownItems'
+import {minsizeDropdownItems,maxsizeDropdownItems} from './DropdownItems'
 
-const SizeOption = () => {
-  return <div>
-    <h3 className="dropdown-second-text">Size </h3>
-    <select className="size-dropdown">{sizeDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
-    <select className="size-dropdown">{sizeDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
-  </div>;
-};
+const SizeOption =  () => {
+    return (
+        <>
+        <div className='size-dropdown-menu'>
+        <select className="size-dropdown">{minsizeDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
+        <select className="size-dropdown">{maxsizeDropdownItems.map((option)=><option value={option}>{option.option}</option>)}</select>
+        </div>
+        </>
+    )
+}
 
-export default SizeOption;
+export default SizeOption

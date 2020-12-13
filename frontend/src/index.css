@@ -58,15 +58,16 @@ code {
   .searchformarea {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
     margin-top: 3rem;
     margin-bottom: 0;
     padding-bottom: 0rem;
     padding-right:0;
     padding-top: 0;
+    border: 1px solid white;
   }
   .searchform{
-    width: 80%;
+    width: 90%;
     margin-top: 0;
     margin-left: 0;
     display: flex;
@@ -74,6 +75,7 @@ code {
   }
   .searchformareatitle{
     padding-left: 0rem;
+    margin-right: 0;
   }
   .searchform-first{
     display: flex;
@@ -81,14 +83,14 @@ code {
   }
   .searchform-sale-location-home{
     display: flex;
-    width: 50%;
+    width: 70%;
   }
   .searchform-second{
     margin-top: 0rem;
     display: flex;
   }
   .searchbutton{
-    width: 15%;
+    width: 20%;
   } 
 }
 
@@ -107,6 +109,9 @@ code {
   height: 2rem;
   margin-left: 1rem;
 }
+.fas{
+  display: none;
+}
 @media(min-width:750px){
 .sale-dropdown,
 .location-dropdown,
@@ -116,22 +121,43 @@ code {
   height: 3rem;
   margin-left: 0;
 }
+.room-dropdown{
+  width: 80%;
+  height: 2rem;
+  margin-left: 0rem;
+}
+.room-dropdown-max{
+  margin-left: 1rem;
+}
 .dropdown-first-text{
   display: none;
 }
 .dropdown-second-text{
   margin-top: 0.5rem;
 }
+.dropdown-size-text{
+  margin-left: 1rem;
+}
 .budget-option{
   display: flex;
-}
-.room-option{ 
 }
 .all-options{
   width: 50%;
   margin-bottom: 0;
 }
+.size-dropdown-menu{
+  display: flex;
 }
+.room-dropdown-menu{
+  display: flex;
+  padding-right: 1rem;
+}
+.fas{
+  margin-left: 0.25rem;
+  display: inline;
+}
+}
+
 /* dropdown /*
 
 /* navigation */
