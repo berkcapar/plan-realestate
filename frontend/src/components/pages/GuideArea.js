@@ -6,9 +6,9 @@ const GuideArea = () => {
       <p>Discover where nature meets the sea and turn into your next peaceful residency.</p>
       </div> 
       <div className="guide-buttons"> 
-      <button>Bodrum</button>
-      <button>Fethiye</button>
-      <button>Antalya</button>
+      <button className="guide-button">Bodrum</button>
+      <button className="guide-button">Fethiye</button>
+      <button className="guide-button">Antalya</button>
       </div>
     </div>
   );

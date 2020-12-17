@@ -2,19 +2,19 @@ body {
   margin: 0;
   padding:0;
   height: 100%;
-  font-family: 'AirbnbCereal';
+  font-family: 'Airbnb Cereal';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
 }
 @font-face {
-  font-family: 'AirbnbCereal';
-  src: local('AirbnbCereal'), url(./fonts/AirbnbCerealBlack.woff) format('woff');
-  src: local('AirbnbCereal'), url(./fonts/AirbnbCerealBold.woff) format('woff');
-  src: local('AirbnbCereal'), url(./fonts/AirbnbCerealBook.woff) format('woff');
-  src: local('AirbnbCereal'), url(./fonts/AirbnbCerealExtraBold.woff) format('woff');
-  src: local('AirbnbCereal'), url(./fonts/AirbnbCerealLight.woff) format('woff');
-  src: local('AirbnbCereal'), url(./fonts/AirbnbCerealMedium.woff) format('woff');
+  font-family: 'Airbnb Cereal';
+  src: local('Airbnb Cereal Black'), url(./fonts/AirbnbCerealBlack.woff) format('woff');
+  src: local('Airbnb Cereal Bold'), url(./fonts/AirbnbCerealBold.woff) format('woff');
+  src: local('Airbnb Cereal Book'), url(./fonts/AirbnbCerealBook.woff) format('woff');
+  src: local('Airbnb Cereal ExtraBold'), url(./fonts/AirbnbCerealExtraBold.woff) format('woff');
+  src: local('Airbnb Cereal Light'), url(./fonts/AirbnbCerealLight.woff) format('woff');
+  src: local('Airbnb Cereal Medium'), url(./fonts/AirbnbCerealMedium.woff) format('woff');
 }
 
 code {
@@ -337,8 +337,6 @@ code {
 /* why card */
 
 
-
-
 /* guide area */
 
 .guidearea {
@@ -357,6 +355,14 @@ code {
   display: flex;
   justify-content: space-around;
   margin-top: 1.5rem;
+}
+.guide-button{
+  background-color: lightseagreen;
+  color: white;
+  border: 1px solid azure;
+  border-radius: 15%;
+  padding: 1rem 1rem;
+  margin: 1rem auto;
 }
 .guidearea-texts {
   width: 40%;
