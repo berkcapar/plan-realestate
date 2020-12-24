@@ -5,7 +5,7 @@ import Routes from "./Routes";
 const App = () => {
   return(
     <div>
-    <Navigation/>
+  
     <Routes />
     </div>
   )
@@ -13,3 +13,4 @@ const App = () => {
 };
 
 export default App;
+

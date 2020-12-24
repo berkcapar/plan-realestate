@@ -1,26 +1,35 @@
-import { useDispatch } from "react-redux"
-import {login} from "../redux/reducers/loginReducer"
-import {showNotification} from "../redux/reducers/notificationReducer"
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { login, persistAuthentication } from "../redux/reducers/loginReducer";
+import { showNotification } from "../redux/reducers/notificationReducer";
+import { getLoggedInfoFromState } from "../redux/selectors";
 
 const AdminPanel = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const isLoggedIn = useSelector(getLoggedInfoFromState);
 
-    const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(persistAuthentication());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push("/adminpanelform");
+    }
+  }, [history, isLoggedIn]);
 
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-
-    try{
-        dispatch(login(email,password))
-    } catch(error){
-        dispatch(showNotification('Kullanıcı Adı/Şifre yanlış'))
-    }
+    dispatch(login(email, password));
   };
 
   return (
     <div className="loginarea">
-      <h2>PlanEmlak Admin Panel Sayfasına Hoşgeldiniz!</h2>
+      <h2>PlanoEmlak Admin Panel Sayfasına Hoşgeldiniz!</h2>
       <form className="loginform" onSubmit={handleLogin}>
         <div className="emailpassword">
           <div className="emailtext">

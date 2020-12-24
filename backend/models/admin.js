@@ -9,7 +9,13 @@ const adminSchema = new mongoose.Schema({
     },
     passwordHash:{
         type: String
+    },
+    properties:[ 
+      { 
+      type: mongoose.Schema.Types.ObjectId,
+      ref:'Properties'
     }
+    ]
 })
 
 adminSchema.plugin(uniqueValidator)

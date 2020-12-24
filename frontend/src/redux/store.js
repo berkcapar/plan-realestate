@@ -1,10 +1,12 @@
 import { combineReducers, createStore, applyMiddleware } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension"
 import thunk from "redux-thunk"
-import searchReducer from "./reducers/searchReducer"
+import loginReducer from "./reducers/loginReducer"
+import propertyReducer from "./reducers/propertyReducer"
 
 const reducer = combineReducers({
-   search: searchReducer
+   login: loginReducer,
+   property: propertyReducer
   })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))

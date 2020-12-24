@@ -1,6 +1,5 @@
 const adminloginRouter = require('express').Router()
-const adminsignupRouter = require('express').Router()
-const jwt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const Admin = require('../models/admin')
 
@@ -27,19 +26,7 @@ adminloginRouter.post('/', async (request, response)=>{
     .send({token, email: admin.email})
 })
 
-adminsignupRouter.post('/', async(request, response)=>{
-    const body = request.body
-    const saltRounds = 10
-    const passwordHash = await bcrypt.hash(body.password, saltRounds)
 
-    const admin = new Admin({
-        email: body.email,
-        passwordHash
-    })
-    const savedAdmin = await admin.save()
-    response.status(201).json(savedAdmin.toJSON())
-})
-
-module.exports = adminloginRouter, adminsignupRouter
+module.exports = adminloginRouter
 
 

@@ -13,6 +13,9 @@ const propertiesSchema = new mongoose.Schema({
   m2: {
     type: String,
   },
+  roomnumber:{
+    type: String,
+  },
   photos: [
     {
       photo1: {},
@@ -20,6 +23,10 @@ const propertiesSchema = new mongoose.Schema({
       photo3: {},
     },
   ],
+  admin:{ 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Admin'
+}
 });
 
 const Properties = mongoose.model("Properties", propertiesSchema);
