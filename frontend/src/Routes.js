@@ -1,11 +1,12 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AdminPanel from "./components/AdminPanel";
 import AdminPanelForm from "./components/AdminPanelForm";
+import AllPropertiesList from "./components/AllPropertiesList";
 import HomePage from "./components/pages/HomePage";
 
 const Routes = () => {
   return (
-    <BrowserRouter> 
+    <BrowserRouter>
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -14,14 +15,22 @@ const Routes = () => {
           <div>Make A Wish</div>
         </Route>
         <Route path="/adminpanellogin">
-          <div><AdminPanel/></div>
+          <div>
+            <AdminPanel />
+          </div>
         </Route>
         <Route path="/adminpanelform">
-          <div><AdminPanelForm/></div>
+          <div>
+            <AdminPanelForm />
+          </div>
+        </Route>
+        <Route path="/showallproperties">
+          <div>
+            <AllPropertiesList />
+          </div>
         </Route>
       </Switch>
-      </BrowserRouter>
-  
+    </BrowserRouter>
   );
 };
 

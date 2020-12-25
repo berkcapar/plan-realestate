@@ -7,7 +7,7 @@ import {
   purchaseDropdownItems,
   homeDropdownItems,
   maxroomDropdownItems,
-  maxsizeDropdownItems
+  maxsizeDropdownItems,
 } from "./DropdownItems";
 
 const AdminPanelForm = () => {
@@ -15,19 +15,10 @@ const AdminPanelForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const option = event.target.option.value;
-    const propertyType = event.target.propertyType.value;
-    const title = event.target.title.value;
-    const city = event.target.city.value;
-    const price = event.target.price.value;
-    const m2 = event.target.m2.value;
-    const roomnumber = event.target.roomnumber.value;
+    const formData = new FormData(event.target);
 
     try {
-      dispatch(
-        addProperty(option, propertyType, title, city, price, m2, roomnumber)
-      );
-      console.log(option)
+      dispatch(addProperty(formData));
     } catch (error) {
       dispatch(showNotification(`Ekleme Başarısız Oldu`));
     }
@@ -36,13 +27,19 @@ const AdminPanelForm = () => {
   return (
     <div className="loginarea">
       <h2>Eklemek istediğiniz evin bilgilerini doldurun.</h2>
-      <form className="loginform" onSubmit={handleSubmit}>
+      <form
+        className="loginform"
+        enctype="multipart/form-data"
+        onSubmit={handleSubmit}
+      >
         <div className="emailpassword">
           <div className="emailtext">
             Option:
             <select name="option" className="sale-dropdown">
               {purchaseDropdownItems.map((option) => (
-                <option value={option.purchaseoption}>{option.purchaseoption}</option>
+                <option value={option.purchaseoption}>
+                  {option.purchaseoption}
+                </option>
               ))}
             </select>
           </div>
@@ -62,9 +59,7 @@ const AdminPanelForm = () => {
             City:
             <select name="city" className="location-dropdown">
               {locationDropdownItems.map((option) => (
-                <option value={option.location}>
-                  {option.location}
-                </option>
+                <option value={option.location}>{option.location}</option>
               ))}
             </select>
           </div>
@@ -74,15 +69,32 @@ const AdminPanelForm = () => {
           </div>
           <div className="passwordtext">
             m2:
-            <select name="m2" className="size-dropdown">{maxsizeDropdownItems.map((option)=><option value={option.maxsizeoption}>{option.maxsizeoption}</option>)}</select>
+            <select name="m2" className="size-dropdown">
+              {maxsizeDropdownItems.map((option) => (
+                <option value={option.maxsizeoption}>
+                  {option.maxsizeoption}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="passwordtext">
             Room Number:
-            <select name="roomnumber" className="room-dropdown room-dropdown-max">{maxroomDropdownItems.map((option)=><option value={option.maxroomoption}>{option.maxroomoption}</option>)}</select>
+            <select
+              name="roomnumber"
+              className="room-dropdown room-dropdown-max"
+            >
+              {maxroomDropdownItems.map((option) => (
+                <option value={option.maxroomoption}>
+                  {option.maxroomoption}
+                </option>
+              ))}
+            </select>
           </div>
+          Add Photos:
+          <input multiple type="file" name="photos" />
         </div>
         <button className="loginbutton" type="submit">
-         Ekle!
+          Ekle!
         </button>
       </form>
     </div>
