@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const { uuid } = require("uuidv4");
 
-const DIR = "./public/property-images";
+const DIR = "./public";
 
 const storage = multer.diskStorage({
   destination: (request, file, cb) => {
@@ -71,9 +71,7 @@ propertiesRouter.post(
       price: body.price,
       m2: body.m2,
       roomnumber: body.roomnumber,
-      photos: request.files.map(
-        (file) => url + "/public/property-images" + file.filename
-      ),
+      photos: request.files.map((file) => url + "/public/" + file.filename),
       admin: admin._id,
     });
 

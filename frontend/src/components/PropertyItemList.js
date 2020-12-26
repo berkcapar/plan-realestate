@@ -1,7 +1,14 @@
 import React from "react";
 
 const PropertyItemList = ({ property }) => {
-  return <h1>{property.title}</h1>;
+  console.log(property.photos[0]);
+  return (
+    <div>
+      <h2>{property.city}</h2>
+      <h1>{property.title}</h1>
+      <img alt="property" src={property.photos[0]} />
+    </div>
+  );
 };
 
 export default PropertyItemList;
