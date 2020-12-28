@@ -6,7 +6,6 @@ const config = require("./utils/config");
 const adminloginRouter = require("./controllers/adminlogin");
 const adminsignupRouter = require("./controllers/adminsignup");
 const propertiesRouter = require("./controllers/properties");
-const path = require("path");
 
 mongoose.connect(config.MONGODB_URI, {
   useNewUrlParser: true,

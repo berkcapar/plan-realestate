@@ -85,4 +85,19 @@ propertiesRouter.post(
   }
 );
 
+propertiesRouter.delete("/:id", async (request, response) => {
+  const token = getTokenFrom(request);
+  const decodedToken = jwt.verify(token, process.env.SECRET);
+  if (!token || !decodedToken.id) {
+    return response.status(401).json({ error: "token missing or invalid" });
+  }
+  const admin = await Admin.findById(decodedToken.id);
+  const property = await Properties.findById(request.params.id);
+  await property.remove();
+  admin.properties = admin.properties.filter(
+    (property) => property.id.toString() !== request.params.id.toString()
+  );
+  await admin.save();
+  response.status(204).json({ success: "delete successful" }).end(); // success mesajı neden postmande görünmüyor && sona end() koymanın ne faydası var.
+});
 module.exports = propertiesRouter;

@@ -27,6 +27,14 @@ const propertiesSchema = new mongoose.Schema({
   },
 });
 
+propertiesSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: function (doc, ret) {
+    delete ret._id;
+  },
+});
+
 const Properties = mongoose.model("Properties", propertiesSchema);
 
 module.exports = Properties;

@@ -3,14 +3,11 @@ import Navigation from "./components/Navigation";
 import Routes from "./Routes";
 
 const App = () => {
-  return(
+  return (
     <div>
-  
-    <Routes />
+      <Routes />
     </div>
-  )
-
+  );
 };
 
 export default App;
-

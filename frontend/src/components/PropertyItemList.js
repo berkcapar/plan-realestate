@@ -6,7 +6,7 @@ const PropertyItemList = ({ property }) => {
     <div>
       <h2>{property.city}</h2>
       <h1>{property.title}</h1>
-      <img alt="property" src={property.photos[0]} />
+      <img alt="property" src={property.photos[1]} />
     </div>
   );
 };

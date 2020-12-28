@@ -24,4 +24,12 @@ const getProperties = async () => {
   return response.data;
 };
 
-export default { addProperty, setToken, getProperties };
+const deleteProperty = async (id) => {
+  const config = {
+    headers: { Authorization: token },
+  };
+  const response = await axios.delete(`${baseUrl}/${id}`, config);
+  return response.data;
+};
+
+export default { addProperty, setToken, getProperties, deleteProperty };

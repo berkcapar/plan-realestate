@@ -9,6 +9,7 @@ import {
   maxroomDropdownItems,
   maxsizeDropdownItems,
 } from "./DropdownItems";
+import { Link } from "react-router-dom";
 
 const AdminPanelForm = () => {
   const dispatch = useDispatch();
@@ -97,6 +98,9 @@ const AdminPanelForm = () => {
           Ekle!
         </button>
       </form>
+      <Link to="/adminpanel-allproperties">
+        <h3>Bütün evleri görüntüleyin </h3>
+      </Link>
     </div>
   );
 };

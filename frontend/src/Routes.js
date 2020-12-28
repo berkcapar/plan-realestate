@@ -3,6 +3,8 @@ import AdminPanel from "./components/AdminPanel";
 import AdminPanelForm from "./components/AdminPanelForm";
 import AllPropertiesList from "./components/AllPropertiesList";
 import HomePage from "./components/pages/HomePage";
+import AdminPanelAllPropertiesList from "./components/AdminPanelAllPropertiesList";
+import AdminPanelPropertyItem from "./components/AdminPanelPropertyItem";
 
 const Routes = () => {
   return (
@@ -22,6 +24,16 @@ const Routes = () => {
         <Route path="/adminpanelform">
           <div>
             <AdminPanelForm />
+          </div>
+        </Route>
+        <Route path="/adminpanel-allproperties/:id">
+          <div>
+            <AdminPanelPropertyItem />
+          </div>
+        </Route>
+        <Route path="/adminpanel-allproperties">
+          <div>
+            <AdminPanelAllPropertiesList />
           </div>
         </Route>
         <Route path="/showallproperties">
