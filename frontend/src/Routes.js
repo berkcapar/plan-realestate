@@ -4,7 +4,7 @@ import AdminPanelForm from "./components/AdminPanelForm";
 import AllPropertiesList from "./components/AllPropertiesList";
 import HomePage from "./components/pages/HomePage";
 import AdminPanelAllPropertiesList from "./components/AdminPanelAllPropertiesList";
-import AdminPanelPropertyItem from "./components/AdminPanelPropertyItem";
+import AdminPanelPropertyPage from "./components/pages/AdminPanelPropertyPage";
 
 const Routes = () => {
   return (
@@ -28,7 +28,7 @@ const Routes = () => {
         </Route>
         <Route path="/adminpanel-allproperties/:id">
           <div>
-            <AdminPanelPropertyItem />
+            <AdminPanelPropertyPage />
           </div>
         </Route>
         <Route path="/adminpanel-allproperties">

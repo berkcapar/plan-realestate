@@ -9,10 +9,11 @@ import {
   maxroomDropdownItems,
   maxsizeDropdownItems,
 } from "./DropdownItems";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const AdminPanelForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +21,7 @@ const AdminPanelForm = () => {
 
     try {
       dispatch(addProperty(formData));
+      history.push("/adminpanel-allproperties");
     } catch (error) {
       dispatch(showNotification(`Ekleme Başarısız Oldu`));
     }
