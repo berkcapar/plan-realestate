@@ -10,6 +10,13 @@ import {
   maxsizeDropdownItems,
 } from "./DropdownItems";
 import { Link, useHistory } from "react-router-dom";
+import Select from "@material-ui/core/Select";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 
 const AdminPanelForm = () => {
   const dispatch = useDispatch();
@@ -28,82 +35,93 @@ const AdminPanelForm = () => {
   };
 
   return (
-    <div className="loginarea">
+    <Box mx="auto" width="50%" display="flex" flexDirection="column">
       <h2>Eklemek istediğiniz evin bilgilerini doldurun.</h2>
-      <form
-        className="loginform"
-        enctype="multipart/form-data"
-        onSubmit={handleSubmit}
-      >
-        <div className="emailpassword">
-          <div className="emailtext">
-            Option:
-            <select name="option" className="sale-dropdown">
+      <form enctype="multipart/form-data" onSubmit={handleSubmit}>
+        <Box mx="auto" width="100%" display="flex" flexDirection="column">
+          <FormControl>
+            <InputLabel>Satış Durumu</InputLabel>
+            <Select name="option">
               {purchaseDropdownItems.map((option) => (
-                <option value={option.purchaseoption}>
+                <MenuItem value={option.purchaseoption}>
                   {option.purchaseoption}
-                </option>
+                </MenuItem>
               ))}
-            </select>
-          </div>
-          <div className="passwordtext">
-            Property Type:
-            <select name="propertyType" className="property-drowdown">
+            </Select>
+          </FormControl>
+          <FormControl>
+            <InputLabel>Ev Tipi</InputLabel>
+            <Select name="propertyType">
               {homeDropdownItems.map((option) => (
-                <option value={option.homeoption}>{option.homeoption}</option>
+                <MenuItem key={option.id} value={option.homeoption}>
+                  {option.homeoption}
+                </MenuItem>
               ))}
-            </select>
-          </div>
-          <div className="passwordtext">
-            Title:
-            <input className="passwordinput" name="title" />
-          </div>
-          <div className="passwordtext">
-            City:
-            <select name="city" className="location-dropdown">
+            </Select>
+          </FormControl>
+          <TextField name="title" label="Açıklama Ekleyin" variant="outlined" />
+          <FormControl>
+            <InputLabel>City</InputLabel>
+            <Select name="city">
               {locationDropdownItems.map((option) => (
-                <option value={option.location}>{option.location}</option>
+                <MenuItem key={option.id} value={option.location}>
+                  {option.location}
+                </MenuItem>
               ))}
-            </select>
-          </div>
-          <div className="passwordtext">
-            Price:
-            <input className="passwordinput" name="price" />
-          </div>
-          <div className="passwordtext">
-            m2:
-            <select name="m2" className="size-dropdown">
-              {maxsizeDropdownItems.map((option) => (
-                <option value={option.maxsizeoption}>
-                  {option.maxsizeoption}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="passwordtext">
-            Room Number:
-            <select
-              name="roomnumber"
-              className="room-dropdown room-dropdown-max"
-            >
+            </Select>
+          </FormControl>
+          <FormControl>
+            <InputLabel>Room number</InputLabel>
+            <Select name="roomnumber">
               {maxroomDropdownItems.map((option) => (
-                <option value={option.maxroomoption}>
+                <MenuItem key={option.id} value={option.maxroomoption}>
                   {option.maxroomoption}
-                </option>
+                </MenuItem>
               ))}
-            </select>
-          </div>
-          Add Photos:
-          <input multiple type="file" name="photos" />
-        </div>
-        <button className="loginbutton" type="submit">
-          Ekle!
-        </button>
+            </Select>
+          </FormControl>
+          <TextField name="price" id="standard-basic" label="Add Price" />
+          <FormControl>
+            <InputLabel>m2</InputLabel>
+            <Select name="m2">
+              {maxsizeDropdownItems.map((option) => (
+                <MenuItem key={option.id} value={option.maxsizeoption}>
+                  {option.maxsizeoption}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          <input
+            style={{ display: "none" }}
+            id="raised-button-file"
+            multiple
+            type="file"
+            name="photos"
+          />
+          <label htmlFor="raised-button-file">
+            <Button
+              type="submit"
+              style={{ width: "100%", marginTop: "1rem" }}
+              variant="raised"
+              component="span"
+            >
+              Evin Fotoğraflarını Yükleyin
+            </Button>
+          </label>
+          <Button
+            style={{ width: "20%", margin: "1rem auto" }}
+            type="submit"
+            variant="outlined"
+          >
+            Ekle!
+          </Button>
+        </Box>
       </form>
       <Link to="/adminpanel-allproperties">
         <h3>Bütün evleri görüntüleyin </h3>
       </Link>
-    </div>
+    </Box>
   );
 };
 

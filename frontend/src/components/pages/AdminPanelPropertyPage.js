@@ -4,7 +4,7 @@ import { deleteProperty } from "../../redux/reducers/propertyReducer";
 import { showNotification } from "../../redux/reducers/notificationReducer";
 import { Link, useParams } from "react-router-dom";
 
-const AdminPanelPropertyItem = () => {
+const AdminPanelPropertyPage = () => {
   const dispatch = useDispatch();
   const id = useParams().id;
   const property = useSelector((state) =>
@@ -35,4 +35,4 @@ const AdminPanelPropertyItem = () => {
   );
 };
 
-export default AdminPanelPropertyItem;
+export default AdminPanelPropertyPage;
