@@ -39,7 +39,7 @@ const AdminPanelForm = () => {
       <h2>Eklemek istediğiniz evin bilgilerini doldurun.</h2>
       <form enctype="multipart/form-data" onSubmit={handleSubmit}>
         <Box mx="auto" width="100%" display="flex" flexDirection="column">
-          <FormControl>
+          <FormControl required>
             <InputLabel>Satış Durumu</InputLabel>
             <Select name="option">
               {purchaseDropdownItems.map((option) => (
@@ -49,7 +49,7 @@ const AdminPanelForm = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl>
+          <FormControl required>
             <InputLabel>Ev Tipi</InputLabel>
             <Select name="propertyType">
               {homeDropdownItems.map((option) => (
@@ -59,9 +59,9 @@ const AdminPanelForm = () => {
               ))}
             </Select>
           </FormControl>
-          <TextField name="title" label="Açıklama Ekleyin" variant="outlined" />
-          <FormControl>
-            <InputLabel>City</InputLabel>
+          <TextField required name="title" label="Açıklama Ekleyin" />
+          <FormControl required>
+            <InputLabel>Lokasyon Seçin</InputLabel>
             <Select name="city">
               {locationDropdownItems.map((option) => (
                 <MenuItem key={option.id} value={option.location}>
@@ -70,8 +70,8 @@ const AdminPanelForm = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl>
-            <InputLabel>Room number</InputLabel>
+          <FormControl required>
+            <InputLabel>Oda Sayısını Belirtin</InputLabel>
             <Select name="roomnumber">
               {maxroomDropdownItems.map((option) => (
                 <MenuItem key={option.id} value={option.maxroomoption}>
@@ -80,8 +80,13 @@ const AdminPanelForm = () => {
               ))}
             </Select>
           </FormControl>
-          <TextField name="price" id="standard-basic" label="Add Price" />
-          <FormControl>
+          <TextField
+            required
+            name="price"
+            id="standard-basic"
+            label="Add Price"
+          />
+          <FormControl required>
             <InputLabel>m2</InputLabel>
             <Select name="m2">
               {maxsizeDropdownItems.map((option) => (
