@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const baseUrl = "api/admin/properties";
 
 let token = null;
@@ -32,4 +33,15 @@ const deleteProperty = async (id) => {
   return response.data;
 };
 
-export default { addProperty, setToken, getProperties, deleteProperty };
+const searchProperty = async (searchData) => {
+  const response = await axios.get(`${baseUrl}/search`, searchData);
+  return response.data;
+};
+
+export default {
+  addProperty,
+  setToken,
+  getProperties,
+  deleteProperty,
+  searchProperty,
+};

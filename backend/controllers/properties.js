@@ -49,6 +49,38 @@ propertiesRouter.get("/", async (request, response) => {
   });
 });
 
+const filterEmptyKeys = (obj) => {
+  const result = {};
+
+  Object.entries(obj).forEach(([key, value]) => {
+    if (value !== undefined) {
+      result[key] = value;
+    }
+  });
+
+  return result;
+};
+
+propertiesRouter.get("/search", async (request, response) => {
+  const { params = {} } = request.query;
+
+  // axios.get(/v1/properties/search, { params: { city: 'Antalya', propertyType: 'villa', option: 'sale' } })
+
+  const filteredProperties = await Properties.find(filterEmptyKeys(params));
+
+  response.json({
+    properties: filteredProperties.map((p) => p.toJSON()),
+  });
+});
+
+propertiesRouter.get("/cities", async (_, response) => {
+  const properties = await Properties.find();
+
+  response.json({
+    cities: properties.map((property) => property.city),
+  });
+});
+
 propertiesRouter.post(
   "/",
   upload.array("photos"),

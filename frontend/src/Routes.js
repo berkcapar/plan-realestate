@@ -5,6 +5,7 @@ import AllPropertiesList from "./components/AllPropertiesList";
 import HomePage from "./components/pages/HomePage";
 import AdminPanelAllPropertiesList from "./components/AdminPanelAllPropertiesList";
 import AdminPanelPropertyPage from "./components/pages/AdminPanelPropertyPage";
+import SearchResults from "./components/pages/SearchResults";
 
 const Routes = () => {
   return (
@@ -39,6 +40,11 @@ const Routes = () => {
         <Route path="/showallproperties">
           <div>
             <AllPropertiesList />
+          </div>
+        </Route>
+        <Route path="/searchresults">
+          <div>
+            <SearchResults />
           </div>
         </Route>
       </Switch>

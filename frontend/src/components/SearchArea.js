@@ -5,33 +5,50 @@ import LocationDropdown from "./LocationDropdown";
 import RoomDropdown from "./RoomDropdown";
 import SaleOption from "./SaleOption";
 import SizeDropdown from "./SizeDropdown";
+import { useDispatch } from "react-redux";
+import { searchProperty } from "../redux/reducers/propertyReducer";
+import { useHistory } from "react-router-dom";
 
 const SearchArea = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const searchData = new FormData(event.target);
+
+    try {
+      dispatch(searchProperty(searchData));
+      history.push("/searchresults");
+    } catch (error) {}
+  };
 
   return (
-    <div className= "searchformarea">
+    <div className="searchformarea">
       <h3 className="searchformareatitle">Find Your Cozy Place</h3>
-      <form className="searchform">
+      <form onSubmit={handleSearch} className="searchform">
         <div className="searchform-first">
           <div className="searchform-sale-location-home">
-        <div className="all-options">
-          <SaleOption />
+            <div className="all-options">
+              <SaleOption name="option" />
+            </div>
+            <div className="all-options">
+              <LocationDropdown name="city" />
+            </div>
+            <div className="all-options">
+              <HomeOption name="propertyType" />
+            </div>
+          </div>
+          <div className="all-options">
+            <BudgetOption name="price" />
+          </div>
+          <button className="searchbutton" type="submit">
+            SEARCH{" "}
+          </button>
         </div>
-        <div className="all-options">
-          <LocationDropdown />
-        </div>
-        <div className="all-options">
-          <HomeOption />
-        </div>
-        </div>
-        <div className="all-options">
-          <BudgetOption />
-        </div>
-        <button className="searchbutton" type="submit">SEARCH </button>
-        </div>
-        <div className="searchform-second"> 
-        <RoomDropdown />
-        <SizeDropdown />
+        <div className="searchform-second">
+          <RoomDropdown name="roomnumber" />
+          <SizeDropdown name="m2" />
         </div>
       </form>
     </div>

@@ -4,6 +4,12 @@ const propertiesSchema = new mongoose.Schema({
   title: {
     type: String,
   },
+  option: {
+    type: String,
+  },
+  propertyType: {
+    type: String,
+  },
   city: {
     type: String,
   },

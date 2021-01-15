@@ -32,6 +32,18 @@ export const deleteProperty = (id) => {
   };
 };
 
+export const searchProperty = (searchData) => {
+  return async (dispatch) => {
+    try {
+      const { properties } = await propertyService.searchProperty(searchData);
+      dispatch({
+        type: "SEARCH_PROPERTY",
+        data: properties,
+      });
+    } catch {}
+  };
+};
+
 const propertyReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_PROPERTY":
@@ -40,6 +52,8 @@ const propertyReducer = (state = [], action) => {
       return action.data;
     case "DELETE_PROPERTY":
       return state.filter((property) => property.id !== action.data);
+    case "SEARCH_PROPERTY":
+      return action.data;
     default:
       return state;
   }
