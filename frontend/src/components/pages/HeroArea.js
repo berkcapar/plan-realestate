@@ -1,13 +1,12 @@
 import React from "react";
-import SearchArea from "../SearchArea";
+import SearchArea from "../Search/SearchArea";
 
 const HeroArea = () => {
   return (
     <div className="hero-area">
-     <SearchArea />
-     
+      <SearchArea />
     </div>
   );
 };
 
-export default HeroArea
+export default HeroArea;

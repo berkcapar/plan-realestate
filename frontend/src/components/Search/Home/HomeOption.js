@@ -1,5 +1,5 @@
 import React from "react";
-import { homeDropdownItems } from "./DropdownItems";
+import { homeDropdownItems } from "../DropdownItems";
 
 const HomeOption = () => {
   return (

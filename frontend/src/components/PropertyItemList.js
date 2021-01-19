@@ -1,7 +1,4 @@
-import React from "react";
-
 const PropertyItemList = ({ property }) => {
-  console.log(property.photos[0]);
   return (
     <div>
       <h2>{property.city}</h2>

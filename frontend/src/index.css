@@ -22,6 +22,8 @@ code {
     monospace;
 }
 
+
+
 .hero-area {
   background-image: url("./images/heroimage.jpg");
   background-repeat: no-repeat;
@@ -264,29 +266,6 @@ code {
 }
 /* navigation */
 
-
-/* highligthed card && area */
-
-.highlightedarea {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-}
-
-.highlightcard {
-  border: 1px solid black;
-}
-.highlightcard-textbox {
-  display: flex;
-}
-.highlightcard-details {
-}
-.highlightcard-contact-area {
-  margin-top: 7.5rem;
-  margin-left: 2rem;
-}
 
 /* why card */
 

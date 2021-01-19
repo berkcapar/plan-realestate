@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, persistAuthentication } from "../redux/reducers/loginReducer";
-import { showNotification } from "../redux/reducers/notificationReducer";
 import { getLoggedInfoFromState } from "../redux/selectors";
 import Box from "@material-ui/core/Box";
 import FormControl from "@material-ui/core/FormControl";
@@ -82,5 +81,3 @@ const AdminPanel = () => {
 };
 
 export default AdminPanel;
-
-Password: <input className="passwordinput" name="password" />;

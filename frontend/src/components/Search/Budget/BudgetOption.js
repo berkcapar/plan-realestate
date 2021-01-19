@@ -1,5 +1,5 @@
 import React from "react";
-import { minpriceDropdownItems, maxpriceDropdownItems } from "./DropdownItems";
+import { minpriceDropdownItems, maxpriceDropdownItems } from "../DropdownItems";
 
 const BudgetOption = () => {
   return (

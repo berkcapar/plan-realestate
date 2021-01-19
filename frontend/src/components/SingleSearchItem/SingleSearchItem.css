@@ -1,0 +1,44 @@
+.singlesearch-container{
+    display: flex;
+    padding-top: 9%;
+    padding-left:5%;
+    padding-bottom: 3%;
+    border-bottom: 0.1rem solid lightgray
+  
+}
+
+.singlesearch-img-container{
+    width: 40%;
+    text-align: center;
+}
+.singlesearch-text{
+    width: 30%;
+}
+
+.img{
+    max-width: 400px;
+    border-radius: 2rem;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.room-area,
+.m2-area,
+.m2-room-area,
+.city-area,
+.property-area,
+.home-area{
+    display: flex;
+}
+.room-area{
+    margin-left: 1rem;
+}
+.icon{
+    margin-top: 0.8rem;
+   margin-right: 0.2rem;
+}
+
+

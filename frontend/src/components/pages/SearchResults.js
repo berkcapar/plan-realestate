@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import SingleSearchItem from "../../components/SingleSearchItem";
+import SingleSearchItem from "../SingleSearchItem/SingleSearchItem";
 
 const SearchResults = () => {
   const searchedproperties = useSelector((state) => state.search);

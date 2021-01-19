@@ -1,5 +1,5 @@
 import React from "react";
-import { minroomDropdownItems, maxroomDropdownItems } from "./DropdownItems";
+import { minroomDropdownItems, maxroomDropdownItems } from "../DropdownItems";
 
 const RoomOption = () => {
   return (

@@ -1,0 +1,17 @@
+  
+ .highlight-card{
+  width: 25%;
+  border: 0.1rem solid gray;
+ }
+  .highlightcard-textbox {
+    display: flex;
+    color: black;
+  }
+ 
+  .highlightcard-contact-area {
+    margin-top: 7.5rem;
+    margin-left: 2rem;
+  }
+  img{
+    max-width: 300px;
+  }

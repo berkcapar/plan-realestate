@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import BudgetOption from "./BudgetOption";
-import HomeOption from "./HomeOption";
-import LocationDropdown from "./LocationDropdown";
-import RoomDropdown from "./RoomDropdown";
-import SaleOption from "./SaleOption";
-import SizeDropdown from "./SizeDropdown";
+import BudgetOption from "./Budget/BudgetOption";
+import HomeOption from "./Home/HomeOption";
+import LocationDropdown from "./Location/LocationDropdown";
+import RoomDropdown from "./Room/RoomDropdown";
+import SaleOption from "./Sale/SaleOption";
+import SizeDropdown from "./Size/SizeDropdown";
 import { useDispatch } from "react-redux";
-import { searchProperty } from "../redux/reducers/propertyReducer";
+import { searchProperty } from "../../redux/reducers/propertyReducer";
 import { useHistory } from "react-router-dom";
 
 const SearchArea = () => {

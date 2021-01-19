@@ -1,0 +1,25 @@
+.google-map {
+    height: 60vh;
+    width: 50rem;
+  }
+  
+  .pin {
+    display: flex;
+    align-items: center;
+    color: var(--main-blue);
+  }
+  
+
+  @media screen and (min-width: 799px) {
+    .google-map {
+        height: 60vh;
+    }
+
+  }
+  
+  
+
+ 
+  
+  
+    

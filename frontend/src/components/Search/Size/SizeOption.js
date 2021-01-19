@@ -1,5 +1,5 @@
 import React from "react";
-import { minsizeDropdownItems, maxsizeDropdownItems } from "./DropdownItems";
+import { minsizeDropdownItems, maxsizeDropdownItems } from "../DropdownItems";
 
 const SizeOption = () => {
   return (

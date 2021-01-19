@@ -1,0 +1,6 @@
+.highlighted-area {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10rem;
+    padding-top: 10rem;
+  }
