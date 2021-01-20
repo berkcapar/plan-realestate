@@ -9,14 +9,19 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles({
   form: {
     backgroundColor: "white",
-    width: "100%",
+    width: "50%",
+  },
+  maxform: {
+    backgroundColor: "white",
+    width: "50%",
+    marginLeft: "0.5rem",
   },
 });
 
 const SizeOption = () => {
   const classes = useStyles();
   return (
-    <Box display="flex" width="100%">
+    <Box marginLeft="10rem" display="flex" width="150%">
       <FormControl className={classes.form} variant="filled">
         <InputLabel>Min Size</InputLabel>
         <Select name="option">
@@ -28,7 +33,7 @@ const SizeOption = () => {
           ))}
         </Select>
       </FormControl>
-      <FormControl className={classes.form} variant="filled">
+      <FormControl className={classes.maxform} variant="filled">
         <InputLabel>Max Size</InputLabel>
         <Select name="option">
           {maxsizeDropdownItems.map((option) => (

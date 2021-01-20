@@ -7,17 +7,25 @@
     height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
   }
   .guide-buttons {
-    width: 45%;
+    width: 40%;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+   
   }
 
   .guidearea-texts {
-    width: 40%;
-    padding-left: 3.9rem;
+    width: 90%;
     color: seashell;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
   }
+  .text-button{
+    margin: auto 0;
+    width: 100%;
+  }  

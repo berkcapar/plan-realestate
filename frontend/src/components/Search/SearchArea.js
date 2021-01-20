@@ -10,10 +10,18 @@ import { useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  SizeDropdown: {
+    border: "1px",
+  },
+});
 
 const SearchArea = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const classes = useStyles();
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -50,9 +58,9 @@ const SearchArea = () => {
         </div>
 
         <Box display="flex" justifyContent="space-between" marginTop="1rem">
-          <Box display="flex">
+          <Box display="flex" width="80%">
             <RoomDropdown name="roomnumber" />
-            <SizeDropdown name="m2" />
+            <SizeDropdown className={classes.SizeDropdown} name="m2" />
           </Box>
           <Link to="/showallproperties" style={{ textDecoration: "none" }}>
             <Typography style={{ color: "white" }} variant="h6">

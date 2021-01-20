@@ -1,6 +1,17 @@
 .highlighted-area {
     display: flex;
     justify-content: space-around;
-    padding-bottom: 10rem;
-    padding-top: 10rem;
+    padding-bottom: 11rem;
+  }
+
+.ha-container{
+  background-color: SEASHELL;
+  padding-top: 2rem;
+
+}
+
+  h1{
+    text-align: center;
+    margin-top: 5rem;
+    padding-bottom: 3rem;
   }

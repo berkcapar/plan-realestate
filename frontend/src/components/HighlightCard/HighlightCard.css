@@ -1,20 +1,19 @@
-  
- .highlight-card{
+  .highlight-card{
   width: 23.5%;
   border: 0.1rem solid gray;
+  background-color: white;
  }
- .highlight-card h2{
+
+ .highlight-card:hover{
+  transition-duration: 0.5s;
+  transform: scale(1.2);
  }
   .highlightcard-textbox {
     display: flex;
     color: black;
   }
- 
-  .highlightcard-contact-area {
-    margin-top: 7.5rem;
-    margin-left: 2rem;
-  }
-  img{
-    max-width: 300px;
-   
+  .highlight-card img{
+    max-width: 447px;
+    max-height: 300px;
+    width: 100%;
   }
