@@ -1,16 +1,28 @@
-import React from "react";
 import { locationDropdownItems } from "../DropdownItems";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  form: {
+    backgroundColor: "white",
+    width: "100%",
+  },
+});
 
 const LocationDropdown = () => {
+  const classes = useStyles();
   return (
-    <>
-      <h3 className="dropdown-first-text"> Pick a location</h3>
-      <select className="location-dropdown">
+    <FormControl className={classes.form} variant="filled">
+      <InputLabel>Pick a Location</InputLabel>
+      <Select name="option">
         {locationDropdownItems.map((option) => (
-          <option value={option.location}>{option.location}</option>
+          <MenuItem value={option.location}>{option.location}</MenuItem>
         ))}
-      </select>
-    </>
+      </Select>
+    </FormControl>
   );
 };
 

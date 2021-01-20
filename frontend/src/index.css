@@ -23,7 +23,6 @@ code {
 }
 
 
-
 .hero-area {
   background-image: url("./images/heroimage.jpg");
   background-repeat: no-repeat;
@@ -271,7 +270,8 @@ code {
 
 .why-plan-emlak-area{
   background-color: azure;
-  padding-top: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
 }
 .why-card-container{
   display: flex;
@@ -316,39 +316,7 @@ code {
 /* why card */
 
 
-/* guide area */
 
-.guidearea {
-  background-image: url("./images/guidearea.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.guide-buttons {
-  width: 45%;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1.5rem;
-}
-.guide-button{
-  background-color: lightseagreen;
-  color: white;
-  border: 1px solid azure;
-  border-radius: 15%;
-  padding: 1rem 1rem;
-  margin: 1rem auto;
-}
-.guidearea-texts {
-  width: 40%;
-  padding-left: 3.9rem;
-  color: seashell;
-}
-/* guide area */
 
 /*contact area */
 .contact-area {

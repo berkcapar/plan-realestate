@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteProperty } from "../redux/reducers/propertyReducer";
-import { showNotification } from "../redux/reducers/notificationReducer";
+import { deleteProperty } from "../../redux/reducers/propertyReducer";
+import { showNotification } from "../../redux/reducers/notificationReducer";
 import { Link } from "react-router-dom";
 
 const AdminPanelPropertyItem = ({ property }) => {

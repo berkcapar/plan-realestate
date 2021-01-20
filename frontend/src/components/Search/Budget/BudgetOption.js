@@ -1,21 +1,43 @@
-import React from "react";
 import { minpriceDropdownItems, maxpriceDropdownItems } from "../DropdownItems";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+
+const useStyles = makeStyles({
+  form: {
+    backgroundColor: "white",
+    width: "50%",
+  },
+});
 
 const BudgetOption = () => {
+  const classes = useStyles();
   return (
-    <div className="budget-option">
-      <h3 className="dropdown-first-text">Budget</h3>
-      <select className="budget-dropdown">
-        {minpriceDropdownItems.map((option) => (
-          <option value={option.minpriceoption}>{option.minpriceoption}</option>
-        ))}
-      </select>
-      <select className="budget-dropdown">
-        {maxpriceDropdownItems.map((option) => (
-          <option value={option.maxpriceoption}>{option.maxpriceoption}</option>
-        ))}
-      </select>
-    </div>
+    <Box>
+      <FormControl className={classes.form} variant="filled">
+        <InputLabel>Minimum Budget</InputLabel>
+        <Select name="option">
+          {minpriceDropdownItems.map((option) => (
+            <MenuItem value={option.minpriceoption}>
+              {option.minpriceoption}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <FormControl className={classes.form} variant="filled">
+        <InputLabel>Maximum Budget</InputLabel>
+        <Select name="option">
+          {maxpriceDropdownItems.map((option) => (
+            <MenuItem value={option.maxpriceoption}>
+              {option.maxpriceoption}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Box>
   );
 };
 

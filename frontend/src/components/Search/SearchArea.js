@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import BudgetOption from "./Budget/BudgetOption";
 import HomeOption from "./Home/HomeOption";
 import LocationDropdown from "./Location/LocationDropdown";
@@ -8,6 +7,9 @@ import SizeDropdown from "./Size/SizeDropdown";
 import { useDispatch } from "react-redux";
 import { searchProperty } from "../../redux/reducers/propertyReducer";
 import { useHistory } from "react-router-dom";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 const SearchArea = () => {
   const dispatch = useDispatch();
@@ -46,10 +48,18 @@ const SearchArea = () => {
             SEARCH{" "}
           </button>
         </div>
-        <div className="searchform-second">
-          <RoomDropdown name="roomnumber" />
-          <SizeDropdown name="m2" />
-        </div>
+
+        <Box display="flex" justifyContent="space-between" marginTop="1rem">
+          <Box display="flex">
+            <RoomDropdown name="roomnumber" />
+            <SizeDropdown name="m2" />
+          </Box>
+          <Link to="/showallproperties" style={{ textDecoration: "none" }}>
+            <Typography style={{ color: "white" }} variant="h6">
+              See All
+            </Typography>{" "}
+          </Link>
+        </Box>
       </form>
     </div>
   );

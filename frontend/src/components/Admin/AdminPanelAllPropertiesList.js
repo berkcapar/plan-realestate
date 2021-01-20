@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import AdminPanelPropertyItem from "./AdminPanelPropertyItem";
-import { initProperties } from "../redux/reducers/propertyReducer";
+import { initProperties } from "../../redux/reducers/propertyReducer";
 import {
   getLoggedInfoFromState,
   getPropertiesFromState,
-} from "../redux/selectors";
+} from "../../redux/selectors";
 
 const AdminPanelAllPropertiesList = () => {
   const properties = useSelector(getPropertiesFromState);

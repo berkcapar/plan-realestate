@@ -1,9 +1,9 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import AdminPanel from "./components/AdminPanel";
-import AdminPanelForm from "./components/AdminPanelForm";
-import AllPropertiesList from "./components/AllPropertiesList";
+import AdminPanel from "./components/Admin/AdminPanel";
+import AdminPanelForm from "./components/Admin/AdminPanelForm";
+import AllPropertiesList from "./components/SeeAll/AllPropertiesList";
 import HomePage from "./components/pages/HomePage";
-import AdminPanelAllPropertiesList from "./components/AdminPanelAllPropertiesList";
+import AdminPanelAllPropertiesList from "./components/Admin/AdminPanelAllPropertiesList";
 import AdminPanelPropertyPage from "./components/pages/AdminPanelPropertyPage";
 import SearchResults from "./components/pages/SearchResults";
 import Navigation from "./components/Navigation/Navigation";
@@ -43,6 +43,7 @@ const Routes = () => {
         </Route>
         <Route path="/showallproperties">
           <div>
+            <Navigation />
             <AllPropertiesList />
           </div>
         </Route>

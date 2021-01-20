@@ -1,14 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { showNotification } from "../redux/reducers/notificationReducer";
-import { addProperty } from "../redux/reducers/propertyReducer";
+import { showNotification } from "../../redux/reducers/notificationReducer";
+import { addProperty } from "../../redux/reducers/propertyReducer";
 import {
   locationDropdownItems,
   purchaseDropdownItems,
   homeDropdownItems,
   maxroomDropdownItems,
   maxsizeDropdownItems,
-} from "./Search/DropdownItems";
+} from "../Search/DropdownItems";
 import { Link, useHistory } from "react-router-dom";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";

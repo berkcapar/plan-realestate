@@ -4,15 +4,20 @@ import "./HighlightCard.css";
 const HighlightCard = ({ property }) => {
   return (
     <div className="highlight-card">
-      <div className="highlightcard-textbox">
-        <div>
-          <Link to={`/properties/${property.id}`}>
-            <h2>{property.city}</h2>
-          </Link>
-          <h1>{property.title}</h1>
-          <img alt="property" src={property.photos[0]} />
+      <Link
+        style={{ textDecoration: "none" }}
+        to={`/properties/${property.id}`}
+      >
+        <div className="highlightcard-textbox">
+          <div>
+            <img alt="property" src={property.photos[0]} />
+            <h3>{property.title}</h3>
+            <h3>{property.city}</h3>
+            <p>{property.price}€</p>
+            <p>{property.m2}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

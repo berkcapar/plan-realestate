@@ -14,10 +14,15 @@ const HighlightedArea = () => {
   }, [dispatch]);
 
   return (
-    <div className="highlighted-area">
-      {properties.map((property) => (
-        <HighlightCard key={property.id} property={property} />
-      ))}
+    <div>
+      <h2 style={{ textAlign: "center" }}>
+        Discover the Highlighted Properties!
+      </h2>
+      <div className="highlighted-area">
+        {properties.map((property) => (
+          <HighlightCard key={property.id} property={property} />
+        ))}
+      </div>
     </div>
   );
 };

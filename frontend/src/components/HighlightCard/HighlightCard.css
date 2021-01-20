@@ -1,7 +1,9 @@
   
  .highlight-card{
-  width: 25%;
+  width: 23.5%;
   border: 0.1rem solid gray;
+ }
+ .highlight-card h2{
  }
   .highlightcard-textbox {
     display: flex;
@@ -14,4 +16,5 @@
   }
   img{
     max-width: 300px;
+   
   }
