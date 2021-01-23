@@ -9,7 +9,6 @@ import Map from "../../Map/Map";
 
 const PropertyDetail = ({ location }) => {
   const id = useParams().id;
-
   const property = useSelector((state) =>
     state.property.find((p) => p.id === id)
   );
@@ -52,12 +51,12 @@ const PropertyDetail = ({ location }) => {
         <div className="small-images">
           <img src={property.photos[1]} alt="property" />
           <img src={property.photos[2]} alt="property" />
-          <div className="small-images-bottom">
-            <img src={property.photos[3]} alt="property" />
-            <img src={property.photos[4]} alt="property" />
-          </div>
+          <img src={property.photos[3]} alt="property" />
+          <img src={property.photos[4]} alt="property" />
         </div>
       </div>
+      <div></div>
+
       <div className="icon-area">
         <div className="m2-area">
           <SquareFootIcon className="icon" />

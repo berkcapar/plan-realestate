@@ -34,7 +34,7 @@ const deleteProperty = async (id) => {
 };
 
 const searchProperty = async (searchData) => {
-  const response = await axios.get(`${baseUrl}/search`, searchData);
+  const response = await axios.get(`${baseUrl}/search`, { params: searchData });
   return response.data;
 };
 

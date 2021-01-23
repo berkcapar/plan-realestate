@@ -18,13 +18,13 @@ const useStyles = makeStyles({
   },
 });
 
-const RoomOption = () => {
+const RoomOption = ({ name }) => {
   const classes = useStyles();
   return (
     <Box display="flex" width="200%">
       <FormControl className={classes.form} variant="filled">
         <InputLabel>Min Room</InputLabel>
-        <Select name="option">
+        <Select name={name}>
           {minroomDropdownItems.map((option) => (
             <MenuItem value={option.minroomoption}>
               {option.minroomoption}
@@ -34,7 +34,7 @@ const RoomOption = () => {
       </FormControl>
       <FormControl className={classes.maxform} variant="filled">
         <InputLabel>Max Room</InputLabel>
-        <Select name="option">
+        <Select name={name}>
           {maxroomDropdownItems.map((option) => (
             <MenuItem value={option.maxroomoption}>
               {option.maxroomoption}

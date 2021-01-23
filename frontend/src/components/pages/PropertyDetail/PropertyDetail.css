@@ -4,30 +4,33 @@
 
 .image-area{
   display: flex;
+
   
 }
 .title{
     margin-left: 2rem;
 }
 .small-images{
+    display: flex;
+    flex-wrap: wrap;
     width: 50%;
-}
-.small-images-bottom {
-    padding-top: 1rem;
 }
 
 .small-images img {
     max-width: 300px;
-    padding-left: 1.2rem;
-    
+    margin-top: 1rem;
+    margin-left: 1rem;
+  
 }
 .big-image img{
-    max-width: 500px;
+    max-width: 510px;
 }
 
 .big-image{
     width: 40%;
-    padding-left: 2rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    
 }
 .icon-area{
     display: flex;

@@ -18,13 +18,13 @@ const useStyles = makeStyles({
   },
 });
 
-const SizeOption = () => {
+const SizeOption = ({ name }) => {
   const classes = useStyles();
   return (
     <Box marginLeft="10rem" display="flex" width="150%">
       <FormControl className={classes.form} variant="filled">
         <InputLabel>Min Size</InputLabel>
-        <Select name="option">
+        <Select name={name}>
           {minsizeDropdownItems.map((option) => (
             <MenuItem value={option.minsizeoptionoption}>
               {" "}

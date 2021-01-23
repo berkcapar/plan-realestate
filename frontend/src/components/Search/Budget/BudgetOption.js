@@ -13,13 +13,13 @@ const useStyles = makeStyles({
   },
 });
 
-const BudgetOption = () => {
+const BudgetOption = ({ name }) => {
   const classes = useStyles();
   return (
     <Box>
       <FormControl className={classes.form} variant="filled">
         <InputLabel>Minimum Budget</InputLabel>
-        <Select name="option">
+        <Select name={name}>
           {minpriceDropdownItems.map((option) => (
             <MenuItem value={option.minpriceoption}>
               {option.minpriceoption}
@@ -29,7 +29,7 @@ const BudgetOption = () => {
       </FormControl>
       <FormControl className={classes.form} variant="filled">
         <InputLabel>Maximum Budget</InputLabel>
-        <Select name="option">
+        <Select name={name}>
           {maxpriceDropdownItems.map((option) => (
             <MenuItem value={option.maxpriceoption}>
               {option.maxpriceoption}

@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
+  
 }
 @font-face {
   font-family: 'Airbnb Cereal';
@@ -69,7 +70,7 @@ code {
   .searchformarea {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
     margin-top: 3rem;
     margin-bottom: 0;
     padding-bottom: 0rem;
@@ -78,7 +79,7 @@ code {
     border: 1px solid white;
   }
   .searchform{
-    width: 90%;
+    width: 95%;
     margin-top: 0;
     margin-left: 0;
     display: flex;

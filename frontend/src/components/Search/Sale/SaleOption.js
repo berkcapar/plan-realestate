@@ -12,13 +12,13 @@ const useStyles = makeStyles({
   },
 });
 
-const SaleOption = () => {
+const SaleOption = ({ name }) => {
   const classes = useStyles();
 
   return (
     <FormControl className={classes.form} variant="filled">
       <InputLabel>Choose Option</InputLabel>
-      <Select name="option">
+      <Select name={name}>
         {purchaseDropdownItems.map((option) => (
           <MenuItem value={option.purchaseoption}>
             {option.purchaseoption}

@@ -8,6 +8,7 @@ import AdminPanelPropertyPage from "./components/pages/AdminPanelPropertyPage";
 import SearchResults from "./components/pages/SearchResults";
 import Navigation from "./components/Navigation/Navigation";
 import PropertyDetail from "./components/pages/PropertyDetail/PropertyDetail";
+import MakeaWish from "./components/pages/MakeaWish";
 
 const Routes = () => {
   return (
@@ -19,7 +20,7 @@ const Routes = () => {
         </Route>
         <Route path="/makeawish">
           <Navigation />
-          <div>Make A Wish</div>
+          <MakeaWish />
         </Route>
         <Route path="/adminpanellogin">
           <div>

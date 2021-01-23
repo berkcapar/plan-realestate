@@ -49,11 +49,16 @@ propertiesRouter.get("/", async (request, response) => {
   });
 });
 
+// obj                  => { option: 'For Sale', city: '' }
+// Object.entries(obj)  => [ ['option', 'For Sale'], ['city', ''] ]
 const filterEmptyKeys = (obj) => {
+  // yeni bir obje olusturuyoruz
   const result = {};
 
+  // objenin [key-value] pairlari uzerinde for ile gezip
   Object.entries(obj).forEach(([key, value]) => {
-    if (value !== undefined) {
+    // eger value FALSY bir seyse yeni objeye eklemiyoruz
+    if (!!value) {
       result[key] = value;
     }
   });
@@ -62,11 +67,23 @@ const filterEmptyKeys = (obj) => {
 };
 
 propertiesRouter.get("/search", async (request, response) => {
-  const { params = {} } = request.query;
+  const { minpriceoption, maxpriceoption, ...exactParams } = filterEmptyKeys(
+    request.query || {}
+  );
 
-  // axios.get(/v1/properties/search, { params: { city: 'Antalya', propertyType: 'villa', option: 'sale' } })
+  const query = { ...exactParams };
 
-  const filteredProperties = await Properties.find(filterEmptyKeys(params));
+  if (minpriceoption) {
+    query.price = query.price || {};
+    query.price = { $gte: parseInt(minpriceoption, 10) };
+  }
+
+  if (maxpriceoption) {
+    query.price = query.price || {};
+    query.price = { ...query.price, $lte: parseInt(maxpriceoption, 10) };
+  }
+
+  const filteredProperties = await Properties.find(query);
 
   response.json({
     properties: filteredProperties.map((p) => p.toJSON()),

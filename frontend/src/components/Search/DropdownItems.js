@@ -71,7 +71,7 @@ export const minsizeDropdownItems = [
   { id: "60²", minsizeoptionoption: "60²" },
   { id: 9, minsizeoptionoption: "70²" },
   { id: 10, minsizeoptionoption: "80²" },
-  { minsizeoptionoption: "90²" },
+  { minsiizeoptionoption: "90²" },
   { minsizeoptionoption: "100²" },
   { minsizeoptionoption: "110²" },
   { minsizeoptionoption: "120²" },

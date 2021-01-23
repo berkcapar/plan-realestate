@@ -25,7 +25,8 @@ const SearchArea = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    const searchData = new FormData(event.target);
+    const formData = new FormData(event.target);
+    const searchData = Object.fromEntries(formData.entries());
 
     try {
       dispatch(searchProperty(searchData));

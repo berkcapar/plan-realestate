@@ -12,12 +12,12 @@ const useStyles = makeStyles({
   },
 });
 
-const HomeOption = () => {
+const HomeOption = ({ name }) => {
   const classes = useStyles();
   return (
     <FormControl className={classes.form} variant="filled">
       <InputLabel>Choose Property</InputLabel>
-      <Select name="option">
+      <Select name={name}>
         {homeDropdownItems.map((option) => (
           <MenuItem value={option.homeoption}>{option.homeoption}</MenuItem>
         ))}
