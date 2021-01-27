@@ -55,7 +55,7 @@ const Routes = () => {
           </div>
         </Route>
         <Route path="/properties/:id">
-          <div>
+          <div className="test">
             <Navigation />
             <PropertyDetail />
           </div>

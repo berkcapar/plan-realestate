@@ -1,4 +1,5 @@
-import BudgetOption from "./Budget/BudgetOption";
+import { MinBudgetOption } from "./Budget/BudgetOption";
+import { MaxBudgetOption } from "./Budget/BudgetOption";
 import HomeOption from "./Home/HomeOption";
 import LocationDropdown from "./Location/LocationDropdown";
 import RoomDropdown from "./Room/RoomDropdown";
@@ -11,10 +12,21 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   SizeDropdown: {
     border: "1px",
+  },
+  button: {
+    width: "20%",
+  },
+  "@media(max-width:675px)": {
+    button: {
+      width: "100%",
+      margin: "1rem auto",
+      border: "1px solid red",
+    },
   },
 });
 
@@ -51,11 +63,17 @@ const SearchArea = () => {
             </div>
           </div>
           <div className="all-options">
-            <BudgetOption name="price" />
+            <MinBudgetOption name="minpriceoption" />
+            <MaxBudgetOption name="maxpriceoption" />
           </div>
-          <button className="searchbutton" type="submit">
-            SEARCH{" "}
-          </button>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            type="submit"
+          >
+            SEARCH
+          </Button>
         </div>
 
         <Box display="flex" justifyContent="space-between" marginTop="1rem">

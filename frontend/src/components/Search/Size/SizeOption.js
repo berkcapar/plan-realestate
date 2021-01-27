@@ -28,7 +28,7 @@ const SizeOption = ({ name }) => {
           {minsizeDropdownItems.map((option) => (
             <MenuItem value={option.minsizeoptionoption}>
               {" "}
-              {option.minsizeoptionoption}
+              {option.minsizeoptionoption}m²
             </MenuItem>
           ))}
         </Select>
@@ -39,7 +39,7 @@ const SizeOption = ({ name }) => {
           {maxsizeDropdownItems.map((option) => (
             <MenuItem value={option.maxsizeoption}>
               {" "}
-              {option.maxsizeoption}
+              {option.maxsizeoption}m²
             </MenuItem>
           ))}
         </Select>

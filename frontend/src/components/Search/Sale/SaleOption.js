@@ -21,7 +21,7 @@ const SaleOption = ({ name }) => {
       <Select name={name}>
         {purchaseDropdownItems.map((option) => (
           <MenuItem value={option.purchaseoption}>
-            {option.purchaseoption}
+            {option.purchaseoptionname}
           </MenuItem>
         ))}
       </Select>

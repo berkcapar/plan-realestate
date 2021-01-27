@@ -17,3 +17,10 @@
     max-height: 300px;
     width: 100%;
   }
+@media(max-width:675px){
+  .highlight-card{
+    width: 70%;
+    margin: 1rem auto;
+  }
+ 
+}

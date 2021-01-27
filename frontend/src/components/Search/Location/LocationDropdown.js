@@ -19,7 +19,7 @@ const LocationDropdown = ({ name }) => {
       <InputLabel>Pick a Location</InputLabel>
       <Select name={name}>
         {locationDropdownItems.map((option) => (
-          <MenuItem value={option.location}>{option.location}</MenuItem>
+          <MenuItem value={option.location}>{option.locationname}</MenuItem>
         ))}
       </Select>
     </FormControl>

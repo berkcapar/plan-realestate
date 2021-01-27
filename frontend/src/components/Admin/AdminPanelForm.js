@@ -84,14 +84,14 @@ const AdminPanelForm = () => {
             required
             name="price"
             id="standard-basic"
-            label="Add Price"
+            label="Fiyat €"
           />
           <FormControl required>
             <InputLabel>m2</InputLabel>
             <Select name="m2">
               {maxsizeDropdownItems.map((option) => (
                 <MenuItem key={option.id} value={option.maxsizeoption}>
-                  {option.maxsizeoption}
+                  {option.maxsizeoption}m²
                 </MenuItem>
               ))}
             </Select>

@@ -18,7 +18,7 @@ const HighlightedArea = () => {
     <div className="ha-container">
       <h1>Discover the Highlighted Properties</h1>
       <div className="highlighted-area">
-        {properties.map((property) => (
+        {properties.slice(0, 3).map((property) => (
           <HighlightCard key={property.id} property={property} />
         ))}
       </div>

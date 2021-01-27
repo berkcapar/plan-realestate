@@ -19,7 +19,7 @@ const HomeOption = ({ name }) => {
       <InputLabel>Choose Property</InputLabel>
       <Select name={name}>
         {homeDropdownItems.map((option) => (
-          <MenuItem value={option.homeoption}>{option.homeoption}</MenuItem>
+          <MenuItem value={option.homeoption}>{option.homeoptionname}</MenuItem>
         ))}
       </Select>
     </FormControl>

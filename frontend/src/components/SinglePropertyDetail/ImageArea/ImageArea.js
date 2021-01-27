@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import "./ImageArea.css";
 
 const ImageArea = ({ property }) => {

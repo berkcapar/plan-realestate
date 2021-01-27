@@ -4,7 +4,20 @@
     padding-left:5%;
     padding-bottom: 3%;
     border-bottom: 0.1rem solid lightgray
-  
+}
+@media(max-width:675px){
+    .singlesearch-container{
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        padding-top: 25%;
+        margin: 0 auto;
+        padding-bottom: 3%;
+        border-bottom: 0.1rem solid lightgray;
+    }
+    .singlesearch-text {
+    
+    }
 }
 
 .singlesearch-img-container{
@@ -12,7 +25,8 @@
     text-align: center;
 }
 .singlesearch-text{
-    width: 30%;
+    width: 80%;
+    padding-left:5%;
 }
 
 .img{

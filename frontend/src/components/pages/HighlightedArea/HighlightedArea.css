@@ -4,6 +4,14 @@
     padding-bottom: 11rem;
   }
 
+@media(max-width:675px){
+  .highlighted-area{
+    flex-direction: column;   
+  }
+}  
+
+
+
 .ha-container{
   background-color: SEASHELL;
   padding-top: 2rem;
