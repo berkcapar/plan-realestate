@@ -13,11 +13,12 @@ import Box from "@material-ui/core/Box";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import airportService from "../../../services/airport";
 
-const PropertyDetail = ({ location }) => {
+const PropertyDetail = () => {
   const id = useParams().id;
   const propertyDetail = useSelector((state) =>
     state.propertyDetail.find((p) => p.id === id)
   );
+  let location = {};
 
   switch (propertyDetail.city) {
     case "Bodrum":
@@ -45,10 +46,13 @@ const PropertyDetail = ({ location }) => {
       };
       break;
     default:
+      location = {
+        lat: 36.8571,
+        lng: 28.2692,
+      };
   }
 
   const nearestairports = airportService.closestAirport(location);
-  console.log(nearestairports);
 
   const [showSlider, setShowSlider] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
