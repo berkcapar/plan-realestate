@@ -10,16 +10,16 @@ import Button from "@material-ui/core/Button";
 import { useState } from "react";
 import ImageSlider from "../../ImageSlider/ImageSlider";
 import Box from "@material-ui/core/Box";
-import CloseIcon from "@material-ui/icons/Close";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import airportService from "../../../services/airport";
 
 const PropertyDetail = ({ location }) => {
   const id = useParams().id;
-  const property = useSelector((state) =>
-    state.property.find((p) => p.id === id)
+  const propertyDetail = useSelector((state) =>
+    state.propertyDetail.find((p) => p.id === id)
   );
 
-  switch (property.city) {
+  switch (propertyDetail.city) {
     case "Bodrum":
       location = {
         lat: 37.0217,
@@ -47,6 +47,9 @@ const PropertyDetail = ({ location }) => {
     default:
   }
 
+  const nearestairports = airportService.closestAirport(location);
+  console.log(nearestairports);
+
   const [showSlider, setShowSlider] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
 
@@ -64,36 +67,43 @@ const PropertyDetail = ({ location }) => {
     <div className="detail-container">
       {showDetails ? (
         <div>
-          <h2 className="title">{property.title}</h2>
+          <div className="image-slider">
+            <ImageSlider slides={propertyDetail.photos} />
+          </div>
+          <h2 className="title">{propertyDetail.title}</h2>
           <div className="image-area">
             <div className="big-image">
-              <img src={property.photos[0]} alt="property" />
+              <img
+                onClick={handleSlider}
+                src={propertyDetail.photos[0]}
+                alt="property"
+              />
             </div>
             <div className="small-images">
-              {property.photos.slice(1, 5).map((photo, index) => {
+              {propertyDetail.photos.slice(1, 5).map((photo, index) => {
                 return (
                   <div key={index}>
-                    <img src={photo} alt="property" />
+                    <img onClick={handleSlider} src={photo} alt="property" />
                   </div>
                 );
               })}
             </div>
           </div>
-          <Box display="flex" justifyContent="flex-end" width="92%" mt={1}>
+          <div className="button">
             <Button onClick={handleSlider} variant="contained" color="primary">
               Show all Photos
             </Button>
-          </Box>
+          </div>
           <div className="icon-area">
             <div className="m2-area">
               <SquareFootIcon className="icon" />
-              <p>{property.m2}</p>
+              <p>{propertyDetail.m2}m2</p>
             </div>
             <div className="room-area">
               <MeetingRoomIcon className="icon" />
-              <p className="room-text">{property.roomnumber} rooms</p>
+              <p className="room-text">{propertyDetail.roomnumber} rooms</p>
             </div>
-            <h3 className="price">{property.price}€</h3>
+            <h3 className="price">{propertyDetail.price}€</h3>
           </div>
           <div className="contact">
             <p>Contact for this House</p>
@@ -116,13 +126,14 @@ const PropertyDetail = ({ location }) => {
           <div className="location">
             <div className="text">
               <h2>Location</h2>
-              <h3>{property.city}</h3>
+              <h3>{propertyDetail.city}</h3>
               <div className="explore">
                 <p>Explore</p>
                 <ChevronRightIcon className="icon" />
               </div>
               <div className="airports">
                 <h3>Nearest Airports</h3>
+                {nearestairports}
               </div>
             </div>
             <div className="map">
@@ -144,7 +155,7 @@ const PropertyDetail = ({ location }) => {
             <KeyboardBackspaceIcon />
             Go Back to Details Page
           </Box>
-          <ImageSlider slides={property.photos} />
+          <ImageSlider slides={propertyDetail.photos} />
         </div>
       ) : null}
     </div>

@@ -41,6 +41,41 @@
   
   .slide.active {
     opacity: 1;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
     transform: scale(1.08);
+  }
+
+  @media(max-width:675px){
+.slider{
+  height: 60vh;
+}
+
+
+    .image {
+      max-width: 400px;
+      max-height: 300px;
+      border-radius: 10px;
+    }
+    .forward-arrow {
+      position: absolute;
+      top: 50%;
+      right: 3rem;
+      font-size: 5rem;
+      color: white;
+      z-index: 10;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .back-arrow {
+      position: absolute;
+      top: 50%;
+      left: 3rem;
+      font-size: 3rem;
+      color:white;
+      z-index: 10;
+      cursor: pointer;
+      user-select: none;
+    }
+    
   }

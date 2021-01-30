@@ -1,37 +1,11 @@
 .detail-container{
- padding-top: 7%
+ padding-top: 13%
 }
 
 .image-area{
-  display: flex;
-
-  
-}
-.title{
-    margin-left: 2rem;
-}
-.small-images{
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
+  display: none;
 }
 
-.small-images img {
-    max-width: 300px;
-    margin-top: 1rem;
-    margin-left: 1rem;
-  
-}
-.big-image img{
-    max-width: 510px;
-}
-
-.big-image{
-    width: 40%;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    
-}
 .icon-area{
     display: flex;
     margin-left: 2rem;
@@ -70,7 +44,6 @@
    width: 40%;
    padding-top: 0.5rem;
 }
-
 .location {
     padding-left: 2rem;
     padding-top: 3rem;
@@ -88,6 +61,57 @@
     margin-right: 15%
 }
 
+.title{
+    text-align: center;
+    margin-top: 0;
+}
+.button{
+    display: none;
+}
+
+@media(min-width:675px){
+    .image-area{
+      display: flex;  
+    }
+  
+    .small-images{
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+    }
+    .small-images img {
+        max-width: 300px;
+        margin-top: 1rem;
+        margin-left: 1rem;
+      
+    }
+    .big-image img{
+        max-width: 501px;
+    }
+    
+    .big-image{
+        width: 40%;
+        margin-left: 2rem;
+        margin-top: 1rem;
+        
+    }
+    .title{
+        margin-left: 2rem;
+    }
+    .detail-container{
+        padding-top: 7%
+       }
+    .image-slider{
+        display: none;
+       }
+    .button{
+       
+        display:flex;
+        justify-content:flex-end ;
+        width:92%;
+        margin-top:1rem
+    }   
+}
 
 
 
