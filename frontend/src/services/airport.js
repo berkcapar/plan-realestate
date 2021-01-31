@@ -1,16 +1,17 @@
 import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_AIRPORT_API_KEY;
+const baseUrl = "api/admin/properties/airports";
 
-const closestAirport = async ({ location }) => {
-  console.log(location);
-  const { lat, lng } = location;
+const sendLocation = async (lat, lang) => {
+  const location = { lat, lang };
 
-  const response = await axios.get(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat}${lng}&radius=1500&type=airport&keyword=cruise&key=${API_KEY}`
-  );
-
+  const response = await axios.post(baseUrl, location);
   return response.data;
 };
 
-export default { closestAirport };
+const getLocation = async () => {
+  const response = await axios.get(baseUrl);
+  return response.data;
+};
+
+export default { sendLocation, getLocation };

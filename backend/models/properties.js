@@ -20,10 +20,10 @@ const propertiesSchema = new mongoose.Schema({
     type: Number,
   },
   m2: {
-    type: String,
+    type: Number,
   },
   roomnumber: {
-    type: String,
+    type: Number,
   },
   photos: [
     {

@@ -38,10 +38,21 @@ const searchProperty = async (searchData) => {
   return response.data;
 };
 
+// properties
+// properties/:propertyId
+// properties/:propertyId/airports
+// -- properties/:propertyId/airports/:airportId -- ignore
+const getAirports = async (propertyId) => {
+  // usage propertyService.getAirports(property.id)
+  const response = await axios.get(`${baseUrl}/${propertyId}/airports`);
+  return response.data;
+};
+
 export default {
   addProperty,
   setToken,
   getProperties,
   deleteProperty,
   searchProperty,
+  getAirports,
 };

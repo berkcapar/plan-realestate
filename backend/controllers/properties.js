@@ -4,6 +4,8 @@ const Admin = require("../models/admin");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const { uuid } = require("uuidv4");
+const airportService = require("../services/airport");
+const locationService = require("../services/location");
 
 const DIR = "./public";
 
@@ -41,14 +43,7 @@ const getTokenFrom = (request) => {
   return null;
 };
 
-propertiesRouter.get("/", async (request, response) => {
-  const properties = await Properties.find();
-
-  response.json({
-    properties: properties.map((property) => property.toJSON()),
-  });
-});
-
+// helper for filtering out empty keys
 // obj                  => { option: 'For Sale', city: '' }
 // Object.entries(obj)  => [ ['option', 'For Sale'], ['city', ''] ]
 const filterEmptyKeys = (obj) => {
@@ -66,6 +61,19 @@ const filterEmptyKeys = (obj) => {
   return result;
 };
 
+// [GET] properties
+propertiesRouter.get("/", async (request, response) => {
+  const properties = await Properties.find();
+
+  response.json({
+    properties: properties.map((property) => ({
+      ...property.toJSON(),
+      location: locationService.getLocationForCity(property.city),
+    })),
+  });
+});
+
+// [GET] properties/search
 propertiesRouter.get("/search", async (request, response) => {
   const { minpriceoption, maxpriceoption, ...exactParams } = filterEmptyKeys(
     request.query || {}
@@ -75,7 +83,7 @@ propertiesRouter.get("/search", async (request, response) => {
 
   if (minpriceoption) {
     query.price = query.price || {};
-    query.price = { $gte: parseInt(minpriceoption, 10) };
+    query.price = { ...query.price, $gte: parseInt(minpriceoption, 10) };
   }
 
   if (maxpriceoption) {
@@ -84,9 +92,13 @@ propertiesRouter.get("/search", async (request, response) => {
   }
 
   const filteredProperties = await Properties.find(query);
+  console.log(query);
 
   response.json({
-    properties: filteredProperties.map((p) => p.toJSON()),
+    properties: filteredProperties.map((p) => ({
+      ...p.toJSON(),
+      location: locationService.getLocationForCity(property.city),
+    })),
   });
 });
 
@@ -98,6 +110,7 @@ propertiesRouter.get("/cities", async (_, response) => {
   });
 });
 
+// [POST] properties
 propertiesRouter.post(
   "/",
   upload.array("photos"),
@@ -134,6 +147,10 @@ propertiesRouter.post(
   }
 );
 
+// [GET] properties/:propertyId
+// missing
+
+// [DELETE] properties/:propertyId
 propertiesRouter.delete("/:id", async (request, response) => {
   const token = getTokenFrom(request);
   const decodedToken = jwt.verify(token, process.env.SECRET);
@@ -147,6 +164,25 @@ propertiesRouter.delete("/:id", async (request, response) => {
     (property) => property.id.toString() !== request.params.id.toString()
   );
   await admin.save();
+  // https://httpstatuses.com/204
   response.status(204).json({ success: "delete successful" }).end(); // success mesajı neden postmande görünmüyor && sona end() koymanın ne faydası var.
 });
+
+// [GET] properties/:propertyId/airports
+// --> find property from database
+// --> get the location data of the property
+// --> search airports for location of the property (lng,lat)
+// --> respond with JSON -> { airports: [] }
+propertiesRouter.get("/airports", async (request, response) => {
+  try {
+    const { closestairports } = await airportService.fetchClosestAirports(
+      location
+    );
+    response.send({ closestairports });
+  } catch (error) {
+    console.log(error);
+    response.status(500).send({ message: "An error occurred", details: error });
+  }
+});
+
 module.exports = propertiesRouter;

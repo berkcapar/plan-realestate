@@ -18,41 +18,8 @@ const PropertyDetail = () => {
   const propertyDetail = useSelector((state) =>
     state.propertyDetail.find((p) => p.id === id)
   );
-  let location = {};
 
-  switch (propertyDetail.city) {
-    case "Bodrum":
-      location = {
-        lat: 37.0217,
-        lng: 27.2545,
-      };
-      break;
-    case "Antalya":
-      location = {
-        lat: 36.884804,
-        lng: 30.704044,
-      };
-      break;
-    case "Kemer":
-      location = {
-        lat: 36.3853,
-        lng: 29.2132,
-      };
-      break;
-    case "Marmaris":
-      location = {
-        lat: 36.8571,
-        lng: 28.2692,
-      };
-      break;
-    default:
-      location = {
-        lat: 36.8571,
-        lng: 28.2692,
-      };
-  }
-
-  const nearestairports = airportService.closestAirport(location);
+  const nearestairports = "";
 
   const [showSlider, setShowSlider] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
@@ -141,7 +108,7 @@ const PropertyDetail = () => {
               </div>
             </div>
             <div className="map">
-              <Map location={location} zoomLevel={17} />
+              <Map location={propertyDetail.location} zoomLevel={17} />
             </div>
           </div>
         </div>
