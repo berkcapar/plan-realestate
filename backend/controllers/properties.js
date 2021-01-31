@@ -169,18 +169,23 @@ propertiesRouter.delete("/:id", async (request, response) => {
 });
 
 // [GET] properties/:propertyId/airports
-// --> find property from database
-// --> get the location data of the property
-// --> search airports for location of the property (lng,lat)
+// --> find property from database by its ID (respond with 404 if property is not present in DB)
+// --> get the location data of the property by its city, using the location service
+// --> search airports for location (lng, lat), using the airportService
 // --> respond with JSON -> { airports: [] }
-propertiesRouter.get("/airports", async (request, response) => {
+propertiesRouter.get("/:id/airports", async (request, response) => {
   try {
-    const { closestairports } = await airportService.fetchClosestAirports(
-      location
-    );
-    response.send({ closestairports });
+    const property = await Properties.findById(request.params.id);
+
+    if (!property) {
+      return response.status(404).json({ error: "Property not found" });
+    }
+
+    const location = locationService.getLocationForCity(property.city);
+    const airports = await airportService.fetchClosestAirports(location);
+
+    response.send({ airports });
   } catch (error) {
-    console.log(error);
     response.status(500).send({ message: "An error occurred", details: error });
   }
 });

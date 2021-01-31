@@ -6,10 +6,11 @@ const API_KEY = process.env.AIRPORT_API_KEY;
 const fetchClosestAirports = async (location) => {
   const { lat, lng } = location;
 
-  const response = await axios.get(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1500&type=airport&keyword=cruise&key=${API_KEY}`
+  const { data } = await axios.get(
+    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=15000&type=airport&keyword=cruise&key=${API_KEY}`
   );
 
-  return response.data;
+  return data.results;
 };
+
 module.exports = { fetchClosestAirports };

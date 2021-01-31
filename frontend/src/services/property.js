@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const baseUrl = "api/admin/properties";
+const API_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3001"
+    : "http://api.planrealestate.com";
+const baseUrl = `${API_URL}/api/admin/properties`;
 
 let token = null;
 
@@ -42,8 +46,8 @@ const searchProperty = async (searchData) => {
 // properties/:propertyId
 // properties/:propertyId/airports
 // -- properties/:propertyId/airports/:airportId -- ignore
-const getAirports = async (propertyId) => {
-  // usage propertyService.getAirports(property.id)
+const fetchAirports = async (propertyId) => {
+  console.log(`${baseUrl}/${propertyId}/airports`);
   const response = await axios.get(`${baseUrl}/${propertyId}/airports`);
   return response.data;
 };
@@ -54,5 +58,5 @@ export default {
   getProperties,
   deleteProperty,
   searchProperty,
-  getAirports,
+  fetchAirports,
 };

@@ -7,20 +7,50 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Map from "../../Map/Map";
 import Button from "@material-ui/core/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageSlider from "../../ImageSlider/ImageSlider";
 import Box from "@material-ui/core/Box";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import airportService from "../../../services/airport";
+import propertyService from "../../../services/property";
 
-const PropertyDetail = () => {
-  const id = useParams().id;
-  const propertyDetail = useSelector((state) =>
-    state.propertyDetail.find((p) => p.id === id)
-  );
+const PropertyAirports = ({ propertyId }) => {
+  const [state, setState] = useState({ status: "loading" });
 
-  const nearestairports = "";
+  useEffect(() => {
+    const fetchAirports = async (propertyId) => {
+      console.log(propertyId);
 
+      try {
+        const { airports } = await propertyService.fetchAirports(propertyId);
+        setState({ status: "success", data: airports });
+      } catch (error) {
+        setState({ status: "failure", error });
+      }
+    };
+
+    fetchAirports(propertyId);
+  }, [propertyId]);
+
+  switch (state.status) {
+    case "loading":
+    default:
+      return "Fetching airports...";
+
+    case "success":
+      return (
+        <div>
+          {state.data.map((airport) => (
+            <div>{airport.name}</div>
+          ))}
+        </div>
+      );
+
+    case "failure":
+      return state.error.message;
+  }
+};
+
+const PropertyDetail = ({ propertyDetail }) => {
   const [showSlider, setShowSlider] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
 
@@ -104,7 +134,7 @@ const PropertyDetail = () => {
               </div>
               <div className="airports">
                 <h3>Nearest Airports</h3>
-                {nearestairports}
+                <PropertyAirports propertyId={propertyDetail.id} />
               </div>
             </div>
             <div className="map">
@@ -133,4 +163,43 @@ const PropertyDetail = () => {
   );
 };
 
-export default PropertyDetail;
+const PropertyDetailContainer = () => {
+  const id = useParams().id;
+  const propertyDataFromStore = useSelector((state) =>
+    state.propertyDetail.find((p) => p.id === id)
+  );
+
+  const [state, setState] = useState({ status: "loading" });
+
+  useEffect(() => {
+    const fetchProperty = async (id) => {
+      console.log(id);
+      setState({
+        status: "failure",
+        error: new Error(
+          "need to fetch property from API because we came to this page directly"
+        ),
+      });
+    };
+
+    if (propertyDataFromStore) {
+      setState({ status: "success", data: propertyDataFromStore });
+    } else {
+      fetchProperty(id);
+    }
+  }, [id, propertyDataFromStore]);
+
+  switch (state.status) {
+    case "loading":
+    default:
+      return "loading component bulursun abi buraya cikiley cikiley";
+
+    case "success":
+      return <PropertyDetail propertyDetail={state.data} />;
+
+    case "failure":
+      return state.error.message;
+  }
+};
+
+export default PropertyDetailContainer;
