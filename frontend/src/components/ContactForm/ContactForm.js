@@ -1,15 +1,18 @@
 import { useDispatch } from "react-redux";
 import { showNotification } from "../../redux/reducers/notificationReducer";
-import sendForm from "../../services/contactform";
+import emailService from "../../services/email";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleContact = (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const about = event.target.about.value;
+
     try {
-      dispatch(sendForm(formData));
+      emailService.sendMail(name, email, about);
       dispatch(showNotification(`Mesajınız Gönderildi!`));
     } catch (error) {
       dispatch(showNotification(`Ekleme Başarısız Oldu`));
