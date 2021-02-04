@@ -8,10 +8,12 @@ const ContactForm = () => {
   const handleContact = (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const about = event.target.about.value;
 
     try {
-      emailService.sendMail(formData);
+      emailService.sendMail(name, email, about);
       dispatch(showNotification(`Mesajınız Gönderildi!`));
     } catch (error) {
       dispatch(showNotification(`Ekleme Başarısız Oldu`));
