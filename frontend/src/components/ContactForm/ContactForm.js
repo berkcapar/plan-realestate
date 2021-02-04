@@ -7,12 +7,11 @@ const ContactForm = () => {
 
   const handleContact = (event) => {
     event.preventDefault();
-    const name = event.target.name.value;
-    const email = event.target.email.value;
-    const about = event.target.about.value;
+
+    const formData = new FormData(event.target);
 
     try {
-      emailService.sendMail(name, email, about);
+      emailService.sendMail(formData);
       dispatch(showNotification(`Mesajınız Gönderildi!`));
     } catch (error) {
       dispatch(showNotification(`Ekleme Başarısız Oldu`));
